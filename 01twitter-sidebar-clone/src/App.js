@@ -10,7 +10,7 @@ import faStyles from 'font-awesome/css/font-awesome.css'
 const App = () => {
   return (
     <div className="sidebar">
-      <FontAwesome name='twitter'/>
+      <FontAwesome className="mainIcon" size="3x" name='twitter'/>
       {
         data.map((tabDetails) => {      
           return <Tab {...tabDetails}/>
