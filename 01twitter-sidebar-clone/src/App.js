@@ -1,13 +1,19 @@
 import React from 'react'
+import {data} from './data'
+import Tab from './Tab'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faTwitter} from "@fortawesome/free-brands-svg-icons";
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 const App = () => {
   return (
-    <>
-      {/* <FontAwesomeIcon icon={fa-twitter} /> */}
+    <div className="sidebar">
       <FontAwesomeIcon icon={faTwitter}/>
-    </>
+      {
+        data.map((tabDetails) => {      
+          return <Tab {...tabDetails}/>
+        })
+      }
+    </div>
   )
 }
 

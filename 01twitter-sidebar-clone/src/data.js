@@ -1,4 +1,4 @@
-export default const data = [
+export const data = [
     {   
         icon: 'home',
         tabName: 'Home',    
