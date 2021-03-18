@@ -32,23 +32,29 @@ code {
   height: 90vh;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .mainIcon {
+  margin-left: 2rem;
   color: rgba(29, 161, 242, 1);
 }
 
 .tab {
   display: flex;
+  justify-content: space-around;
   gap: 1.5rem;
   cursor: pointer;
-  border-radius: 1rem;
-  padding: 0.5rem;
+  border-radius: 5rem;
+  padding: 0.5rem 2rem;
 }
 
 .tab:hover {
-  background: rgb(201, 230, 248);
+  background: rgb(226, 242, 252);
+}
+
+.tabIcon {
+  /* font-size: 3rem; */
 }
 
 .link {
@@ -60,11 +66,17 @@ code {
 .linkName {
   position: absolute;
   bottom: 0;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: #000;
 }
 
 .tab:hover .tabIcon,
 .tab:hover .linkName {
   color: rgba(29, 161, 242, 1);
+}
+
+@media only screen and (max-width: 1000px) {
+  .link {
+    display: none;
+  }
 }
