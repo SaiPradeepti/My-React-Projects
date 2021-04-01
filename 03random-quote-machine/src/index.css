@@ -1,13 +1,113 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap");
+
+*,
+::after,
+::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html,
+body {
+  height: 100%;
+}
+
+body {
+  height: 100vh;
+  min-width: 300px;
+  width: 100vw;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(63, 81, 181, 0.2),
+      rgba(63, 81, 181, 0.8)
+    ),
+    url("https://michalsnik.github.io/aos/img/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Lora", serif;
+}
+
+.quote-box {
+  padding: 5rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  width: 60vw;
+  height: auto;
+  text-align: center;
+  display: grid;
+  grid-template-areas:
+    " text text"
+    "author author"
+    "new-quote tweet-quote";
+  grid-gap: 2rem;
+}
+
+.text {
+  font-size: 2rem;
+  color: white;
+  font-weight: 200;
+  grid-area: text;
+}
+
+.author {
+  color: white;
+  justify-self: right;
+  font-size: 1rem;
+  grid-area: author;
+}
+
+.new-quote {
+  cursor: pointer;
+  text-transform: capitalize;
+  background: rgba(63, 81, 181, 0.5);
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  grid-area: new-quote;
+  justify-self: right;
+}
+
+.tweet-quote {
+  height: 2rem;
+  width: 2rem;
+  padding: 1rem;
+  position: relative;
+  grid-area: tweet-quote;
+}
+
+.tweet-quote img {
+  position: absolute;
+  height: 2rem;
+  width: 2rem;
+  bottom: 0;
+  left: 0;
+}
+
+@media screen and (max-width: 700px) {
+  .text {
+    font-size: 1.5rem;
+  }
+  .quote-box {
+    padding: 3rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .text {
+    font-size: 1rem;
+  }
+  .quote-box {
+    width: 80vw;
+  }
+  .new-quote {
+    font-size: 0.85rem;
+    padding: 0.7rem 1.5rem;
+  }
 }
