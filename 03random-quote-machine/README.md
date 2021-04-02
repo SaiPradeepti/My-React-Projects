@@ -10,7 +10,10 @@
 
 ## Overview
 
-- FreeCodeCamp Front End Development Libraries Project - [Random Quote Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine)
+### FreeCodeCamp Front End Development Libraries Project - [Random Quote Machine](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine)
+
+    - Generates quotes at the page load and also when 'New Quote' button is clicked.
+    - Clicking on twitter icon tweets the current quote.
 
 ### Screenshot
 
