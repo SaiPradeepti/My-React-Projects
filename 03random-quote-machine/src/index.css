@@ -19,8 +19,8 @@ body {
   width: 100vw;
   background-image: linear-gradient(
       to bottom,
-      rgba(63, 81, 181, 0.2),
-      rgba(63, 81, 181, 0.8)
+      rgba(63, 81, 181, 0.3),
+      rgba(63, 81, 181, 0.9)
     ),
     url("https://michalsnik.github.io/aos/img/bg.jpg");
   background-repeat: no-repeat;
@@ -63,7 +63,7 @@ body {
 .new-quote {
   cursor: pointer;
   text-transform: capitalize;
-  background: rgba(63, 81, 181, 0.5);
+  background: rgba(63, 81, 181, 0.7);
   border: none;
   outline: none;
   font-size: 1rem;
@@ -85,9 +85,15 @@ body {
 .tweet-quote img {
   position: absolute;
   height: 2rem;
-  width: 2rem;
+  width: 2.4rem;
   bottom: 0;
   left: 0;
+  transition: 1s ease;
+  transition-delay: 0.8s;
+}
+
+.rotate {
+  transform: rotate(360deg);
 }
 
 @media screen and (max-width: 700px) {
