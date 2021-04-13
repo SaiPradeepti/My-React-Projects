@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { people } from './data'
 
 import './FontAwesomeIcons/fa';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import 'animate.css';
 
 const Review = () => {
   
   const [index,setIndex] = useState(0);
+  const [animate,setAnimate] = useState(true)
   const { image, name, title, quote } = people[index];
 
   const prevPerson = () => {
@@ -17,6 +19,7 @@ const Review = () => {
           newIndex = people.length - 1;          
         return newIndex;
       });
+      setAnimate(!animate)
   }
   const nextPerson = () => {
       let newIndex;
@@ -26,13 +29,20 @@ const Review = () => {
           newIndex = 0;
         return newIndex;
       });
+      setAnimate(!animate)
   }
   
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimate(!animate)
+    }, 1000);
+  }, [index])
+
     return (
         <div className="review">
           <div className="review__title">Our Reviews</div>
             <div className="image__container">
-                <img src={image} alt="" />
+                <img src={image} alt="" className={animate ? 'animate__animated animate__fadeIn' : ''}/>
             </div>
             <div className="reviewer">
                 <div className="reviewer__name">{name}</div>
@@ -41,7 +51,7 @@ const Review = () => {
                     <div className="quote-left">
                       <FontAwesomeIcon icon='quote-left' />
                     </div>
-                    <div className="reviewer__quote animate__animated animate__bounce">
+                    <div className="reviewer__quote">
                       {quote}
                     </div>
                     <div className="quote-right">
