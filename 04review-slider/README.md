@@ -10,6 +10,7 @@
 ## Desktop view
 
 ![](./src/img/Capture1.PNG)
+![](./src/img/Capture.PNG)
 
 ## Mobile view
 
@@ -17,7 +18,7 @@
 
 ## Links
 
-- (Live Site)[https://kind-ride-b93d0a.netlify.app/]
+- Live Site URL: [Click Here](https://review-slider-using-react.netlify.app/)
 
 ## Built using
 
