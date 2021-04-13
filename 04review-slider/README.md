@@ -2,11 +2,11 @@
 
 ## Desktop view
 
-![](./img/Capture1.PNG)
+![](/img/Capture1.PNG)
 
 ## Mobile view
 
-![](./img/Capture2.PNG)
+![](/img/Capture2.PNG)
 
 ## Built using
 
