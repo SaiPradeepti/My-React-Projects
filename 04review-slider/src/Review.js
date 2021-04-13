@@ -8,7 +8,7 @@ import 'animate.css';
 const Review = () => {
   
   const [index,setIndex] = useState(0);
-  const [animate,setAnimate] = useState(true)
+  const [animate,setAnimate] = useState(false)
   const { image, name, title, quote } = people[index];
 
   const prevPerson = () => {
@@ -33,9 +33,7 @@ const Review = () => {
   }
   
   useEffect(() => {
-    setTimeout(() => {
-      setAnimate(!animate)
-    }, 1000);
+    setAnimate(!animate)
   }, [index])
 
     return (
