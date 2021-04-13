@@ -35,7 +35,6 @@ body {
 }
 
 .review {
-  // border: 1px solid red;
   height: 50vh;
   width: 40vw;
   padding: 1rem;
@@ -43,6 +42,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  &__title {
+    position: absolute;
+    top: 10%;
+    color: $clr-white;
+    border-bottom: 1px solid $clr-white;
+    font-size: 2rem;
+    font-weight: $regular-fontWeight;
+  }
 
   .image__container {
     position: absolute;
