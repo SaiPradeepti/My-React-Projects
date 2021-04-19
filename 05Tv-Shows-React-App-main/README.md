@@ -15,12 +15,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 #### Contentful
 
-> **npm install contentful**
+- [contentful.js](https://contentful.github.io/contentful.js/contentful/6.1.1/)
+
+> Installation **npm install contentful**
 
 > Using ES6 import
 
-> // import everything from contentful
-
+    // import everything from contentful
     import * as contentful from 'contentful'
     const client = contentful.createClient({
     // This is the space ID. A space is like a project folder in Contentful terms
@@ -29,4 +30,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
     accessToken: '0b7f6x59a0'
     })
 
-- [contentful.js](https://contentful.github.io/contentful.js/contentful/6.1.1/)
+> Advanced features - Link resolution
+
+    const response = await client.getEntries({'content_type': 'content type name'});
+    const responseData = await response.items;
