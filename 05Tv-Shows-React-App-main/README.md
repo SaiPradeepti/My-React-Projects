@@ -34,3 +34,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
     const response = await client.getEntries({'content_type': 'content type name'});
     const responseData = await response.items;
+
+## Desktop View
+
+![](./src/img/Capture1.PNG)

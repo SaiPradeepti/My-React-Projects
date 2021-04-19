@@ -4,11 +4,6 @@ import Modal from './modal'
 
 const Shows = (props) => {
    const [overlay, setOverlay] = useState({id:'',value:false});
-
-   const closeOverlay = () => {
-       setOverlay({id:'',value:false})
-       console.log(overlay)
-   }
   
     const newdata = props.data.map((item,index) => {
         const {title,image,year,description,genre} = item;
@@ -28,7 +23,7 @@ const Shows = (props) => {
                     }}/>
                 </div>
                 {                    
-                    overlay.value && <Modal item={item} overlay={overlay} closeOverlay={closeOverlay}/>
+                    overlay.value && <Modal item={item} overlay={overlay}/>
                 }
             </div>  
         );     
