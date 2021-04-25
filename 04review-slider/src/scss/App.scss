@@ -14,8 +14,8 @@ body {
   z-index: 0;
 
   @include medium-screen {
-    align-items: flex-end;
-    padding-bottom: 3rem;
+    // align-items: flex-end;
+    padding: 3rem;
   }
 }
 
@@ -35,76 +35,78 @@ body {
 }
 
 .review {
-  height: 50vh;
-  width: 40vw;
-  padding: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem 10rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 7rem;
+
+  @media (max-width: 1300px) {
+    gap: 1rem;
+    padding: 1rem 3rem;
+  }
 
   &__title {
-    position: absolute;
-    top: 10%;
     color: $clr-white;
     border-bottom: 1px solid $clr-white;
     font-size: 2rem;
     font-weight: $regular-fontWeight;
   }
 
+  .reviewer__container {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 1300px) {
+      flex-direction: column;
+    }
+  }
+
   .image__container {
-    position: absolute;
-    top: 20%;
-    right: 27%;
-    height: 300px;
-    width: 300px;
+    height: 310px;
+    width: 450px;
 
     img {
       object-fit: cover;
-      height: 100%;
-      width: 100%;
+      height: 90%;
+      width: 90%;
       border-radius: 50%;
       border-right: 20px solid $clr-light-grey;
     }
 
-    @include large-screen {
-      height: 250px;
+    @media (max-width: 1300px) {
+      height: 280px;
       width: 250px;
-      right: 15%;
     }
-
-    @include medium-screen {
-      height: 200px;
-      width: 200px;
-      top: 20%;
-      left: 40%;
-    }
-
-    @include small-screen {
-      left: 28%;
-    }
-  }
-
-  @include large-screen {
-    height: 50vh;
-    width: 50vw;
-  }
-  @include medium-screen {
-    height: 50vh;
-    width: 400px;
   }
 }
 
+.review.activeSlide {
+  opacity: 1;
+  transform: translateY(0);
+}
+.review.nextSlide {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.review.lastSlide {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
 .reviewer {
-  transform: translateX(-50%);
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
   color: $clr-white;
-  border-radius: 10px;
   font-size: 2rem;
 
   #{&}__name {
-    text-align: center;
-    font-size: 2rem;
     text-transform: capitalize;
     font-weight: $regular-fontWeight;
 
@@ -113,7 +115,6 @@ body {
     }
   }
   #{&}__title {
-    text-align: center;
     font-size: 1.8rem;
     text-transform: capitalize;
     font-weight: $light-fontWeight;
@@ -121,14 +122,6 @@ body {
     @include medium-screen {
       font-size: 1.3rem;
     }
-  }
-
-  @include large-screen {
-    transform: translateX(-30%);
-  }
-
-  @include medium-screen {
-    transform: translateX(0%);
   }
 }
 
@@ -141,7 +134,7 @@ body {
 }
 
 .review__quote {
-  padding: 4rem 2rem;
+  padding: 2rem 4rem;
   position: relative;
 
   .quote-left {
@@ -176,18 +169,17 @@ body {
   border: none;
   background: none;
   color: $clr-white;
-  font-size: 2rem;
+  font-size: 1rem;
   cursor: pointer;
   font-weight: 100;
-  top: 70%;
   outline: none;
 
   @include medium-screen {
-    font-size: 1.5rem;
+    // font-size: 1.5rem;
   }
   @include small-screen {
-    font-size: 1.2rem;
-    top: 90%;
+    // font-size: 1.2rem;
+    top: 50%;
   }
 }
 
