@@ -22,39 +22,40 @@
 
   .form-control {
     position: relative;
+
+    input {
+      display: block;
+      margin-top: 0.5rem;
+      width: 100%;
+      padding: 0.5em 1em;
+      border-radius: 0.5rem;
+      border: 1px solid rgb(150, 150, 150);
+    }
+
+    input:focus {
+      border: 2px solid rgb(114, 114, 114);
+      outline: none;
+    }
+
+    small {
+      visibility: hidden;
+      color: $clr-error;
+      position: absolute;
+      left: 0;
+    }
+
+    input.success {
+      border-width: 2px;
+      border-color: $clr-success;
+    }
+
+    input.error {
+      border-width: 2px;
+      border-color: $clr-error;
+    }
   }
 
-  .form-control input {
-    display: block;
-    margin-top: 0.5rem;
-    width: 100%;
-    padding: 0.5em 1em;
-    border-radius: 0.5rem;
-    border: 1px solid rgb(150, 150, 150);
-  }
-
-  .form-control input:focus {
-    border: 2px solid rgb(114, 114, 114);
-    outline: none;
-  }
-
-  .form-control small {
-    visibility: hidden;
-    color: var(--error-color);
-    position: absolute;
-    left: 0;
-  }
-
-  .form-control.success input {
-    border-width: 2px;
-    border-color: var(--success-color);
-  }
-  .form-control.error input {
-    border-width: 2px;
-    border-color: var(--error-color);
-  }
-
-  button {
+  #{&}__submit {
     cursor: pointer;
     width: 100%;
     color: #fff;
@@ -63,10 +64,10 @@
     background: $clr-blue;
     padding: 0.5rem;
     font-size: 16px;
+    border: 2px solid $clr-blue;
 
     &:hover {
       background: $clr-white;
-      border: 2px solid $clr-blue;
       color: $clr-blue;
     }
   }
