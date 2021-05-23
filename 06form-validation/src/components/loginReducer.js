@@ -1,7 +1,7 @@
 export const loginReducer = (state,action) => {
     let usernameErrorMsg='',emailErrorMsg='',passwordErrorMsg='',password2ErrorMsg='';
-            let usernameSuccess,emailSuccess,passwordSuccess,password2Success;
-            let usernameError,emailError,passwordError,password2Error,inputsValid;
+    let usernameSuccess,emailSuccess,passwordSuccess,password2Success;
+    let usernameError,emailError,passwordError,password2Error,inputsValid;
     switch (action.type){
         case 'field':
             return {
