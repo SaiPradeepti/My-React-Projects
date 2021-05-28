@@ -1,0 +1,28 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  margin-top: -5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 10px solid red;
+  justify-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 65%;
+    top: 0;
+    left: 0;
+    background: url("/images/hero.svg");
+  }
+
+  #{&}__center {
+  }
+
+  #{&}__info {
+  }
+
+  #{&}__images {
+  }
+}

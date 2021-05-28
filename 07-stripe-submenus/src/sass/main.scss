@@ -1,0 +1,20 @@
+@import "./config";
+@import "./navbar";
+@import "./hero";
+
+.btn {
+  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  border-radius: $radius;
+  border-color: transparent;
+  color: $clr-white;
+  background: $clr-black;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  transition: $transition;
+
+  &:hover {
+    background: $clr-grey-5;
+  }
+}
