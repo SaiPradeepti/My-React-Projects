@@ -4,7 +4,6 @@
   margin-top: -5rem;
   display: grid;
   grid-template-columns: 1fr;
-  border: 10px solid red;
   justify-items: center;
 
   &::before {
@@ -14,15 +13,67 @@
     height: 65%;
     top: 0;
     left: 0;
-    background: url("/images/hero.svg");
+    background: url(../images/hero.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+
+    @include responsive(800px) {
+      background-size: contain;
+      height: 100%;
+    }
   }
 
   #{&}__center {
+    width: 90vw;
+    max-width: $max-width;
+    display: grid;
+    align-items: center;
+
+    @include responsive(800px) {
+      grid-template-columns: 2fr 1fr;
+    }
   }
 
   #{&}__info {
+    h1 {
+      text-transform: none;
+      max-width: 990px;
+      margin-bottom: 2rem;
+
+      @include responsive(800px) {
+        font-size: 4rem;
+      }
+      @include responsive(1000px) {
+        font-size: 6rem;
+      }
+    }
+    p {
+      max-width: 35em;
+      line-height: 1.8;
+
+      @include responsive(800px) {
+        font-size: 1.25rem;
+      }
+    }
   }
 
   #{&}__images {
+    display: none;
+    margin-top: -8rem;
+
+    @include responsive(800px) {
+      display: block;
+      justify-self: center;
+    }
+  }
+
+  .phone-img {
+    @include responsive(800px) {
+      width: 12rem;
+    }
+    @include responsive(1000px) {
+      width: 15rem;
+    }
   }
 }

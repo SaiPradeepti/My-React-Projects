@@ -118,3 +118,9 @@ p {
     line-height: 1;
   }
 }
+
+@mixin responsive($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
