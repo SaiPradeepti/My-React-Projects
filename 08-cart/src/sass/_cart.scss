@@ -1,0 +1,40 @@
+.cart {
+  border: 1px solid black;
+  @include centerElement;
+  margin-top: 5rem;
+
+  #{&}__center {
+    border: 1px solid black;
+    width: 70%;
+  }
+  #{&}__header {
+    text-align: center;
+
+    h2 {
+      text-transform: uppercase;
+    }
+  }
+  #{&}__items {
+    margin-top: 2rem;
+
+    .item {
+      #{&}__img {
+        height: 5rem;
+        width: 5rem;
+        object-fit: cover;
+        border: 10px solid red;
+
+        img {
+          height: 100%;
+        }
+      }
+      #{&}__details {
+      }
+      #{&}__amount {
+      }
+    }
+  }
+
+  // #{&}__center
+  // #{&}__center
+}

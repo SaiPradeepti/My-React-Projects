@@ -1,0 +1,14 @@
+@import "./config";
+@import "./navbar";
+@import "./cart";
+
+.app__loading {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  padding-top: 5rem;
+
+  h1 {
+    color: $clr-grey-1;
+  }
+}
