@@ -20,8 +20,8 @@ Users should be able to:
 
 ## Links
 
-- Solution URL: [Solution]()
-- Live Site URL: [Live Site]()
+- Solution URL: [Solution](https://github.com/SaiPradeepti/My-React-Projects/tree/main/07-stripe-submenus)
+- Live Site URL: [Live Site](https://stripe-submenus-sp.netlify.app/)
 
 ## Screenshots
 
