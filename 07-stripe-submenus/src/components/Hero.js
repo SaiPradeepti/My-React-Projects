@@ -4,9 +4,10 @@ import { FaAngleRight } from 'react-icons/fa';
 import { useGlobalContext } from './context';
 
 const Hero = () => {
-  
+  const { closeSubmenu } = useGlobalContext();
+
   return (
-    <div className='hero'>
+    <div className='hero' onMouseOver={closeSubmenu}>
       <div className="hero__center">
         <div className="hero__info">
           <h1>Payments infrastructure

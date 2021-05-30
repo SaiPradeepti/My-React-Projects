@@ -4,9 +4,25 @@ import { FaBars, FaAngleRight } from 'react-icons/fa';
 import { useGlobalContext } from './context';
 
 const Navbar = () => {
-  const { sublinks, openSidebar } = useGlobalContext();
+  const { sublinks, openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
+
+  const displaySubmenu = (e) => {
+    const page = e.target.textContent;
+    const btn = e.target.getBoundingClientRect();
+    const center = (btn.left+btn.right)/2;
+    const bottom = btn.bottom - 3;
+
+    openSubmenu(page,{center,bottom});
+  }
+
+  const handleSubmenu = (e) => {
+    if(!e.target.classList.contains('link-btn')){
+      closeSubmenu();
+    }
+  }
+
   return (
-    <nav className='nav'>
+    <nav className='nav' onMouseOver={handleSubmenu}>
       <div className="nav__center">
         <div className="nav__header">
           <img src={logo} alt="stripe" />
@@ -15,9 +31,13 @@ const Navbar = () => {
           {
             sublinks.map((link,index) => {
               const {page} = link;
-              return (<li className='link-btn'>
-                {page}
-              </li>);
+              return (
+              <li key={index}>
+                <button className='link-btn' onMouseOver={displaySubmenu}>
+                  {page}
+                </button>
+              </li>
+              );
 
             })
           }
