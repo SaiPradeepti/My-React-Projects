@@ -1,0 +1,39 @@
+## Stripe Submenus App
+
+- This project is a part of the course - 'React Tutorial and Projects Course' by John Smilga.
+
+## Table of contents
+
+- [Overview](#overview)
+- [Links](#links)
+- [Screenshot](#screenshot)
+- [Built with](#built-with)
+
+## Overview
+
+Users should be able to:
+
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- View Submenus when hovered on buttons in navbar
+- View Sidebar on smaller screen using hamburger icon
+
+## Links
+
+- Solution URL: [Solution]()
+- Live Site URL: [Live Site]()
+
+## Screenshots
+
+|              |                                |                                |
+| :----------- | :----------------------------: | :----------------------------: |
+| Desktop View | ![](./src/images/Capture1.PNG) | ![](./src/images/Capture2.PNG) |
+| Mobile View  | ![](./src/images/Capture3.PNG) | ![](./src/images/Capture4.PNG) |
+
+## Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- SASS
+- React.js
