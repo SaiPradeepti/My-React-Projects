@@ -15,11 +15,20 @@ export const reducer = (state,action) => {
                 isLoading: false,
                 list: action.payload.data
             }
+        case 'itemCount':
+            let itemCount;
+            if(state.list.length !== 0)
+                itemCount = (state.list.map(item=>item.amount)).reduce((sum,count)=>sum+count)
+            else
+                itemCount = 0;
+            return {
+                ...state,
+                itemCount: itemCount,
+            }
         case 'removeItem':
             return {
                 ...state,
                 list: state.list.filter(item => item.id !== action.payload.id),
-                totalAmount: calculateSum(),
             }
         case 'increaseAmount':
             

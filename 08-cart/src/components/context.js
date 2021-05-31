@@ -9,15 +9,14 @@ export const AppProvider = ({children}) => {
         isLoading : true,
         list: [],
         totalAmount: 0,
+        itemCount: 0,
     }
     const [state,dispatch] = useReducer(reducer,initialState); 
 
     return(
         <AppContext.Provider value={{
         dispatch,
-        isLoading:state.isLoading,
-        list:state.list,
-        totalAmount: state.totalAmount
+        ...state,
         }}>
             {children}
         </AppContext.Provider>

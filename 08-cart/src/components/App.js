@@ -22,10 +22,10 @@ const App = () => {
     }
 
     return (
-            <div>
+            <main>
                 <Navbar />
                 <CartContainer />
-            </div>
+            </main>
         )
     
 }
