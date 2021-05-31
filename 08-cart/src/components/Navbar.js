@@ -1,8 +1,12 @@
 import React from 'react'
 import { HiShoppingBag } from 'react-icons/hi';
-import {IconContext} from "react-icons";
+import { useGlobalContext } from './context'
 
 const Navbar = () => {
+    const { list } = useGlobalContext();
+    const itemCount = (list.map(item=>item.amount)).reduce((sum,count)=>sum+count)
+    console.log(itemCount);
+
     return (
         <nav className='nav'>
             <div className="nav__center">
@@ -12,7 +16,7 @@ const Navbar = () => {
                 <div className="nav__icon">
                     <HiShoppingBag className='icon'/>
                     <div className="itemCount">
-                        0
+                        {itemCount}
                     </div>
                 </div>
             </div>

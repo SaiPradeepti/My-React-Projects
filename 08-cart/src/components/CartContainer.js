@@ -61,8 +61,8 @@ const CartContainer = () => {
                             <h4>$ {totalAmount.toFixed(2)}</h4>
                         </div>
                         <div className="clear">
-                    <button className="btn">clear cart</button>
-                </div>                
+                            <button className="btn" onClick={()=>dispatch({type:'emptyCart'})}>clear cart</button>
+                        </div>                
                     </>
                 }            
             </div>

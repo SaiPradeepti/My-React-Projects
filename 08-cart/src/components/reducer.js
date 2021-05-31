@@ -2,7 +2,6 @@ export const reducer = (state,action) => {
 
     const calculateSum = () => {
         let sum = 0;
-        console.log(state.list.map(item=>item.amount))
         const amountArr = state.list.map(item=>parseInt(item.price)*item.amount);
         sum = amountArr.reduce((total,amount)=>total+amount,0);
         return sum;
@@ -54,6 +53,12 @@ export const reducer = (state,action) => {
             return{
                 ...state,
                 totalAmount: calculateSum(),
+            }
+        case 'emptyCart':
+            return {
+                ...state,
+                list: [],
+                totalAmount: 0,
             }
         default:
             throw new Error('Error');
