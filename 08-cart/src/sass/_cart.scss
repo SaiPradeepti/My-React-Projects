@@ -5,6 +5,13 @@
   #{&}__center {
     width: 50%;
 
+    .emptyCart h4 {
+      text-transform: none;
+      margin-top: 3rem;
+      text-align: center;
+      color: $clr-grey-5;
+    }
+
     @include responsive(1000px) {
       width: 70%;
     }
@@ -20,11 +27,6 @@
 
     h2 {
       text-transform: uppercase;
-    }
-
-    .emptyCart h4 {
-      text-align: center;
-      color: $clr-grey-5;
     }
   }
   #{&}__items {
