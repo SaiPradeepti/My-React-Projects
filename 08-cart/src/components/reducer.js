@@ -2,7 +2,7 @@ export const reducer = (state,action) => {
 
     const calculateSum = () => {
         let sum = 0;
-        const amountArr = state.list.map(item=>parseInt(item.price)*item.amount);
+        const amountArr = state.list.map(item=>parseFloat(item.price)*item.amount);
         sum = amountArr.reduce((total,amount)=>total+amount,0);
         return sum;
     }

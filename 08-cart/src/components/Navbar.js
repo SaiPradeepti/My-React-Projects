@@ -4,7 +4,11 @@ import { useGlobalContext } from './context'
 
 const Navbar = () => {
     const { list } = useGlobalContext();
-    const itemCount = (list.map(item=>item.amount)).reduce((sum,count)=>sum+count)
+    let itemCount;
+    if(list.length !== 0)
+        itemCount = (list.map(item=>item.amount)).reduce((sum,count)=>sum+count)
+    else
+        itemCount = 0;
     console.log(itemCount);
 
     return (
