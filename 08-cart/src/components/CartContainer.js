@@ -1,13 +1,9 @@
-import React,{ useEffect } from 'react'
+import React from 'react'
 import { useGlobalContext } from './context'
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 
 const CartContainer = () => {
     const { dispatch, list, totalAmount } = useGlobalContext();
-    
-    useEffect(()=>{
-        dispatch({type: 'calculateTotalAmount'})
-    },[list])
 
     if(totalAmount === 0){
         return (
@@ -45,17 +41,17 @@ const CartContainer = () => {
                                                 $ {price}
                                             </div>
                                             <div className="remove" onClick={()=>{
-                                                dispatch({type: 'removeItem',payload: {id: id}})
+                                                dispatch({type: 'REMOVE_ITEM',payload: {id: id}})
                                             }}>
                                                 <button>remove</button>
                                             </div>
                                         </div>
                                         <div className="item__amount">
-                                            <div className="icon" onClick={()=>dispatch({type: 'increaseAmount',payload: {id: id}})}><FaChevronUp /></div>
+                                            <div className="icon" onClick={()=>dispatch({type: 'INCREASE_AMOUNT',payload: {id: id}})}><FaChevronUp /></div>
                                             {
-                                                amount===0 ? dispatch({type: 'removeItem',payload: {id: id}}) : <div className="amount">{amount}</div>              
+                                                amount===0 ? dispatch({type: 'REMOVE_ITEM',payload: {id: id}}) : <div className="amount">{amount}</div>              
                                             }                                    
-                                            <div className="icon" onClick={()=>dispatch({type: 'decreaseAmount',payload: {id: id}})}><FaChevronDown /></div>
+                                            <div className="icon" onClick={()=>dispatch({type: 'DECREASE_AMOUNT',payload: {id: id}})}><FaChevronDown /></div>
                                         </div>
                                     </article>
                                 )
@@ -67,7 +63,7 @@ const CartContainer = () => {
                             <h4>$ {totalAmount.toFixed(2)}</h4>
                         </div>
                     <div className="clear">
-                        <button className="btn" onClick={()=>dispatch({type:'emptyCart'})}>clear cart</button>
+                        <button className="btn" onClick={()=>dispatch({type:'EMPTY_CART'})}>clear cart</button>
                     </div>
             </div>
         </section>

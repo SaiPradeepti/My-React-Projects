@@ -1,13 +1,9 @@
-import React,{ useEffect } from 'react'
+import React from 'react'
 import { HiShoppingBag } from 'react-icons/hi';
 import { useGlobalContext } from './context'
 
 const Navbar = () => {
-    const { dispatch, list, itemCount } = useGlobalContext();
-    
-    useEffect(()=>{
-        dispatch({type: 'itemCount'})
-    },[list])
+    const { itemCount } = useGlobalContext();
 
     return (
         <nav className='nav'>

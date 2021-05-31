@@ -1,36 +1,18 @@
 export const reducer = (state,action) => {
 
-    const calculateSum = () => {
-        let sum = 0;
-        const amountArr = state.list.map(item=>parseFloat(item.price)*item.amount);
-        sum = amountArr.reduce((total,amount)=>total+amount,0);
-        return sum;
-    }
-
-    
     switch(action.type){
-        case 'endLoading':
+        case 'END_LOADING':
             return{
                 ...state,
                 isLoading: false,
                 list: action.payload.data
             }
-        case 'itemCount':
-            let itemCount;
-            if(state.list.length !== 0)
-                itemCount = (state.list.map(item=>item.amount)).reduce((sum,count)=>sum+count)
-            else
-                itemCount = 0;
-            return {
-                ...state,
-                itemCount: itemCount,
-            }
-        case 'removeItem':
+        case 'REMOVE_ITEM':
             return {
                 ...state,
                 list: state.list.filter(item => item.id !== action.payload.id),
             }
-        case 'increaseAmount':
+        case 'INCREASE_AMOUNT':
             
             return {
                 ...state,
@@ -44,7 +26,7 @@ export const reducer = (state,action) => {
                     return item;
                 }),
             }
-        case 'decreaseAmount':
+        case 'DECREASE_AMOUNT':
 
             return {
                 ...state,
@@ -58,12 +40,24 @@ export const reducer = (state,action) => {
                     return item;
                 }),
             }
-        case 'calculateTotalAmount':
+        case 'GET_TOTALS':
+            let {totalAmount,itemCount} = state.list.reduce((cartTotal,cartItem)=>{
+                const {price,amount} = cartItem;
+                const itemTotalAmount = price * amount;
+                cartTotal.totalAmount += itemTotalAmount;
+                cartTotal.itemCount += amount;
+                return cartTotal;
+            },{
+                totalAmount: 0,
+                itemCount: 0,
+            })
+            totalAmount = parseFloat(totalAmount.toFixed(2))
             return{
                 ...state,
-                totalAmount: calculateSum(),
+                totalAmount,
+                itemCount,
             }
-        case 'emptyCart':
+        case 'EMPTY_CART':
             return {
                 ...state,
                 list: [],
