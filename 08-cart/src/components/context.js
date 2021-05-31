@@ -8,6 +8,7 @@ export const AppProvider = ({children}) => {
     const initialState = {
         isLoading : true,
         list: [],
+        totalAmount: 2199.96,
     }
     const [state,dispatch] = useReducer(reducer,initialState); 
 
@@ -16,6 +17,7 @@ export const AppProvider = ({children}) => {
         dispatch,
         isLoading:state.isLoading,
         list:state.list,
+        totalAmount: state.totalAmount
         }}>
             {children}
         </AppContext.Provider>

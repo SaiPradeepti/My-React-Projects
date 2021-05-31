@@ -91,21 +91,21 @@ p {
 
 .btn {
   text-transform: uppercase;
-  background: $clr-primary;
-  color: $clr-white;
-  padding: 0.375rem 0.75rem;
+  background: $clr-white;
+  color: $clr-red-dark;
+  padding: 0.5rem 0.9rem;
   letter-spacing: $spacing;
   display: inline-block;
   font-weight: 700;
   transition: $transition;
   font-size: 0.875rem;
-  border: none;
+  border: 1px solid $clr-red-dark;
+  border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 .btn:hover {
-  color: $clr-primary;
-  background: $clr-primary-light;
+  background: $clr-red-light;
 }
 
 // mixins
@@ -119,5 +119,14 @@ p {
 @mixin responsive($width) {
   @media screen and (max-width: $width) {
     @content;
+  }
+}
+
+@mixin cartBtn {
+  color: $clr-primary;
+
+  &:hover {
+    cursor: pointer;
+    color: $clr-primary-light;
   }
 }
