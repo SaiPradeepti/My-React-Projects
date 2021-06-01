@@ -1,14 +1,12 @@
 ## Cart App
 
-- This project is a part of the course - 'React Tutorial and Projects Course' by John Smilga.
-- For practising useContext and useReducer React Hooks.
-
 ## Table of contents
 
 - [Overview](#overview)
 - [Links](#links)
 - [Screenshot](#screenshot)
 - [Built with](#built-with)
+- [Acknowledgement](#acknowledgement)
 
 ## Overview
 
@@ -38,3 +36,8 @@ Users should be able to:
 - Flexbox
 - SASS
 - React.js
+
+## Acknowledgement
+
+- This project is a part of the course - 'React Tutorial and Projects Course' by John Smilga.
+- For practising useContext and useReducer React Hooks.
