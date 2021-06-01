@@ -12,33 +12,18 @@ export const reducer = (state,action) => {
                 ...state,
                 list: state.list.filter(item => item.id !== action.payload.id),
             }
-        case 'INCREASE_AMOUNT':
-            
+        case 'TOGGLE_AMOUNT':
             return {
                 ...state,
-                list: state.list.map(item => {
+                list: (state.list.map(item => {
                     if(item.id === action.payload.id){
-                        return {
-                            ...item,
-                            amount: item.amount+1,                            
-                        }
+                        if(action.payload.type === 'increase')                      
+                            return {...item,amount: item.amount+1}
+                        else if(action.payload.type === 'decrease')                      
+                            return {...item,amount: item.amount-1}
                     }
                     return item;
-                }),
-            }
-        case 'DECREASE_AMOUNT':
-
-            return {
-                ...state,
-                list: state.list.map(item => {
-                    if(item.id === action.payload.id){
-                        return {
-                        ...item,
-                        amount: item.amount-1,
-                    }
-                    }
-                    return item;
-                }),
+                })).filter(item => item.amount !== 0),
             }
         case 'GET_TOTALS':
             let {totalAmount,itemCount} = state.list.reduce((cartTotal,cartItem)=>{
@@ -64,6 +49,6 @@ export const reducer = (state,action) => {
                 totalAmount: 0,
             }
         default:
-            throw new Error('Error');
+            throw new Error('No matching action type...');
     }
 }

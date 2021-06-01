@@ -47,11 +47,9 @@ const CartContainer = () => {
                                             </div>
                                         </div>
                                         <div className="item__amount">
-                                            <div className="icon" onClick={()=>dispatch({type: 'INCREASE_AMOUNT',payload: {id: id}})}><FaChevronUp /></div>
-                                            {
-                                                amount===0 ? dispatch({type: 'REMOVE_ITEM',payload: {id: id}}) : <div className="amount">{amount}</div>              
-                                            }                                    
-                                            <div className="icon" onClick={()=>dispatch({type: 'DECREASE_AMOUNT',payload: {id: id}})}><FaChevronDown /></div>
+                                            <div className="icon" onClick={()=>dispatch({type: 'TOGGLE_AMOUNT',payload: {id: id, type: 'increase'}})}><FaChevronUp /></div>
+                                            <div className="amount">{amount}</div>                                
+                                            <div className="icon" onClick={()=>dispatch({type: 'TOGGLE_AMOUNT',payload: {id: id, type: 'decrease'}})}><FaChevronDown /></div>
                                         </div>
                                     </article>
                                 )
