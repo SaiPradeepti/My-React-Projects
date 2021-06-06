@@ -1,4 +1,4 @@
-## Form Validation Using React
+## Form Validation Using React ( useReducer )
 
 - [Live URL](https://form-validation-react-sp.netlify.app/)
 

@@ -1,4 +1,4 @@
-## Stripe Submenus App
+## Stripe Submenus App ( useContext and Context API )
 
 - This project is a part of the course - 'React Tutorial and Projects Course' by John Smilga.
 - For practising useContext Hook.

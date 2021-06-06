@@ -1,4 +1,4 @@
-## Cart App
+## Cart App ( useReducer, useContext and Context API )
 
 ## Table of contents
 
