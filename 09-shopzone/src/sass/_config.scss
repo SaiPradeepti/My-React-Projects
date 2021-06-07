@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;1,500&display=swap");
+
+// global styles
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans Condensed", sans-serif;
+}
+
+$primary-color: "#0E1162";
+$secondary-color: "#00B6BD";
+$clr-very-dark-blue: "#003F8E";
+$clr-dark-blue: "#0067AA";
+$clr-light-blue: "#008FB8";
+$clr-very-light-green: "#5FDBBF";
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium-italic: 500;
