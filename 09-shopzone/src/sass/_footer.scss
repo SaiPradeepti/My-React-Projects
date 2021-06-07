@@ -1,0 +1,6 @@
+.footer {
+  height: 10vh;
+  background: $clr-black;
+  color: $clr-white;
+  @include centerElement;
+}

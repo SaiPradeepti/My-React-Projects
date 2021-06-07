@@ -11,13 +11,27 @@
   font-family: "Fira Sans Condensed", sans-serif;
 }
 
-$primary-color: "#0E1162";
-$secondary-color: "#00B6BD";
-$clr-very-dark-blue: "#003F8E";
-$clr-dark-blue: "#0067AA";
-$clr-light-blue: "#008FB8";
-$clr-very-light-green: "#5FDBBF";
+$primary-color: #0e1162;
+$secondary-color: #00b6bd;
+$clr-very-dark-blue: #003f8e;
+$clr-dark-blue: #0067aa;
+$clr-light-blue: #008fb8;
+$clr-very-light-green: #5fdbbf;
+$clr-white: #fff;
+$clr-black: #000;
 
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium-italic: 500;
+
+$transition: all 0.3s linear;
+$spacing: 0.1rem;
+$radius: 0.5rem;
+$light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+@mixin centerElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
