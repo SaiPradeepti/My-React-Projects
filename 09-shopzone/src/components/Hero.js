@@ -5,12 +5,12 @@ const Hero = () => {
     
 
     useEffect(()=>{
-       setTimeout(()=>{
+       const timeout =setTimeout(()=>{
         setChangeColor(!changeColor);
        },4000);
 
         return () => {
-            // clearTimeout(color); 
+            clearTimeout(timeout); 
         }
     },[changeColor])
 

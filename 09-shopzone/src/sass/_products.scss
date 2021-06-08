@@ -1,0 +1,65 @@
+@mixin msgStyling {
+  height: 75vh;
+  @include centerElement;
+  background: $clr-black;
+  color: $clr-white;
+}
+
+.loading-msg {
+  @include msgStyling;
+}
+.error-msg {
+  @include msgStyling;
+}
+
+.products {
+  background: lighten($clr-light-green, 7%);
+  background: $clr-black;
+  padding: 2rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem 1rem;
+
+  .product {
+    filter: brightness(0.87) contrast(1.11) grayscale(0.1) hue-rotate(-16deg)
+      invert(0.08) saturate(0.88) sepia(0.03);
+    transition: all 200ms ease;
+
+    &:hover {
+      filter: none;
+    }
+  }
+
+  .product a {
+    height: 400px;
+    @include centerElement;
+    flex-direction: column;
+    gap: 2rem;
+    background: $clr-white;
+    border-radius: 10px;
+    padding: 2rem;
+    text-decoration: none;
+  }
+
+  .product__image {
+    height: 260px;
+    width: 180px;
+
+    img {
+      object-fit: contain;
+      height: 100%;
+      width: 100%;
+
+      transition: transform 500ms ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  .product__title {
+    text-align: center;
+    color: $clr-black;
+  }
+}

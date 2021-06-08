@@ -9,17 +9,17 @@ const Navbar = () => {
             </Link>
             <ul className="links">
                 <li>
-                    <Link to='/' className='link'>
+                    <Link to='/products' className='link'>
                         Products
                     </Link>
                 </li>
                 <li>
-                    <Link to='/' className='link'>
+                    <Link to='/about' className='link'>
                         About
                     </Link>
                 </li>
                 <li>
-                    <Link to='/' className='link'>
+                    <Link to='/contact' className='link'>
                         Contact
                     </Link>
                 </li>
