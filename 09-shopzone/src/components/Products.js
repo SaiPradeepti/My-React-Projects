@@ -1,9 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useGlobalContext} from './context'
 import { Link } from 'react-router-dom'
 
 const Products = () => {
-    const { dispatch, products, loading, error} = useGlobalContext();
+    const { dispatch, categories, filter, products, loading, error} = useGlobalContext();
+
+    const [filteredProducts,setFilteredProducts] = useState([]);
+    let arr = [];
+
+    useEffect(()=>{
+        setFilteredProducts(() => {
+            if(filter === 'all')
+                return products;
+            else
+                return products.filter(item => item.category === filter)
+        });
+    },[filter])
+
+
 
     if(loading){
         return <div className='loading-msg'>
@@ -18,9 +32,19 @@ const Products = () => {
     }
 
     return (
+        <>
+        <div className="filter-menu">
+            {
+                categories.map((category,index) => {
+                    return (
+                        <div key={index} className={filter===category?'btn btn-border':"btn"} onClick={()=>dispatch({type:'setFilter',payload: {filter: category}})}>{category}</div>
+                    )
+                })
+            }
+        </div>
         <div className='products'>
             {
-                products.map(item => {
+                filteredProducts.map(item => {
                     const {id,title,image} = item;
 
                     return (
@@ -36,6 +60,7 @@ const Products = () => {
                 })
             }
         </div>
+        </>
     )
 }
 

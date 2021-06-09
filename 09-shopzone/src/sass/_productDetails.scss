@@ -1,5 +1,5 @@
 .productDetails {
-  height: 75vh;
+  //   height: 75vh;
   padding: 2rem 10rem;
   background: $clr-black;
 
@@ -18,9 +18,7 @@
         width: 550px;
         @include centerElement;
         overflow: hidden;
-        filter: brightness(0.87) contrast(1.11) grayscale(0.1)
-          hue-rotate(-16deg) invert(0.08) saturate(0.88) sepia(0.03);
-        transition: all 200ms ease;
+        @include filter;
 
         img {
           height: 400px;
@@ -36,9 +34,9 @@
     }
 
     .product__details {
-      background: rgba(83, 83, 83, 0.1);
+      background: $clr-dark-grey;
       color: $clr-white;
-      color: #adbdce;
+      color: $clr-light-grey;
       @include centerElement;
       flex-direction: column;
       gap: 2rem;

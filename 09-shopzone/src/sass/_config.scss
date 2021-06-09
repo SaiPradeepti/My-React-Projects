@@ -15,6 +15,9 @@ $primary-color: #000000;
 $secondary-color: #00c9c8;
 $clr-light-green: #bffcf9;
 $clr-dark-green: #47817f;
+$clr-dark-grey: rgba(83, 83, 83, 0.1);
+$clr-grey: rgba(145, 145, 145, 0.1);
+$clr-light-grey: #adbdce;
 $clr-white: #fff;
 $clr-black: #000;
 
@@ -33,4 +36,10 @@ $border: 5px solid red;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin filter {
+  filter: brightness(0.87) contrast(1.11) grayscale(0.1) hue-rotate(-16deg)
+    invert(0.08) saturate(0.88) sepia(0.03);
+  transition: all 200ms ease;
 }

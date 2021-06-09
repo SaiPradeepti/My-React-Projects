@@ -3,18 +3,17 @@ export const reducer = (state,action) => {
     switch(action.type){
         case 'setErrorTrue':
             state.error = true;
-            return {
-                ...state
-            }
+            return {...state}
         case 'setProducts':
-            state.products = action.payload.data;
+            const data = action.payload.data;
+            state.products = data;
             state.loading = false;
-            return {
-                ...state
-            }
+            state.categories =['All',...new Set(data.map(item=>item.category))];
+            return {...state}
+        case 'setFilter':
+            state.filter = action.payload.filter;
+            return {...state}
         default:
-            return {
-                ...state
-            }
+            return {...state}
     }
 }

@@ -12,8 +12,11 @@ export function AppProvider({children}){
     const {data,error} = useFetch(url); 
     const initialState = {
         products: [],
+        categories: [],
         loading: true,
         error: false,
+        filter: 'all',
+        
     }
 
     const [state,dispatch] = useReducer(reducer,initialState);
