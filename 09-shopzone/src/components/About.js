@@ -1,12 +1,8 @@
 import React from 'react'
-import { data } from './aboutData'
+import { aboutData } from './data'
 import AnimatedNumber from "react-animated-numbers"
 
 const About = () => {
-
-    // useEffect(()=>{        
-    // },[])
-
     return (
         <div className='about'>
             <div className="about__title">About Us</div>
@@ -15,7 +11,7 @@ const About = () => {
             </div>
             <div className="about__info">
                 {
-                    data.map(item => {
+                    aboutData.map(item => {
                         const {id,title,count,icon} = item;
                         return (
                             <section key={id} className='info__section'>
