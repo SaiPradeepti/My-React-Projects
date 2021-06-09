@@ -27,7 +27,7 @@
     padding: 1rem 1.5rem;
     cursor: pointer;
   }
-  .btn-border {
+  .btn-selected {
     background: $clr-white;
     color: $clr-black;
   }
@@ -58,6 +58,10 @@
     border-radius: 10px;
     padding: 2rem;
     text-decoration: none;
+
+    &:hover .product__image img {
+      transform: scale(1.1);
+    }
   }
 
   .product__image {
@@ -71,9 +75,9 @@
 
       transition: transform 500ms ease;
 
-      &:hover {
-        transform: scale(1.1);
-      }
+      // &:hover {
+      //   transform: scale(1.1);
+      // }
     }
   }
 

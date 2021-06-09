@@ -6,16 +6,15 @@ const Products = () => {
     const { dispatch, categories, filter, products, loading, error} = useGlobalContext();
 
     const [filteredProducts,setFilteredProducts] = useState([]);
-    let arr = [];
 
     useEffect(()=>{
         setFilteredProducts(() => {
-            if(filter === 'all')
+            if(filter.toLowerCase() === 'all')
                 return products;
             else
                 return products.filter(item => item.category === filter)
         });
-    },[filter])
+    },[filter,products])
 
 
 
@@ -37,7 +36,7 @@ const Products = () => {
             {
                 categories.map((category,index) => {
                     return (
-                        <div key={index} className={filter===category?'btn btn-border':"btn"} onClick={()=>dispatch({type:'setFilter',payload: {filter: category}})}>{category}</div>
+                        <div key={index} className={filter.toLowerCase()===category.toLowerCase()?'btn btn-selected':"btn"} onClick={()=>dispatch({type:'setFilter',payload: {filter: category}})}>{category}</div>
                     )
                 })
             }

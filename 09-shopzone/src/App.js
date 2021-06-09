@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
+import About from './components/About'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -19,13 +20,13 @@ const App = () => {
             <Products />
           </Route>
           <Route path='/product/:id' children={<ProductDetails />}></Route>
-          {/* <Route path='/about'>
+          <Route path='/about'>
             <About />
           </Route>
-          <Route path='/contact'>
+          {/* <Route path='/contact'>
             <About />
-          </Route>
-          <Route path='*'>
+          </Route> */}
+          {/* <Route path='*'>
             <Error />
           </Route> */}
         </Switch>
