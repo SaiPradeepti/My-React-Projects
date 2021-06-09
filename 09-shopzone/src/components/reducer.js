@@ -13,6 +13,9 @@ export const reducer = (state,action) => {
         case 'setFilter':
             state.filter = action.payload.filter;
             return {...state}
+        case 'msgSubmittedTrue':
+            state.msgSubmitted = true;
+            return {...state}
         default:
             return {...state}
     }
