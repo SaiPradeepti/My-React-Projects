@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
 import About from './components/About'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -23,9 +24,9 @@ const App = () => {
           <Route path='/about'>
             <About />
           </Route>
-          {/* <Route path='/contact'>
-            <About />
-          </Route> */}
+          <Route path='/contact'>
+            <Contact />
+          </Route>
           {/* <Route path='*'>
             <Error />
           </Route> */}

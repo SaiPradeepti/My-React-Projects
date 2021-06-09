@@ -1,20 +1,11 @@
-import React,{ useEffect, useRef} from 'react'
+import React from 'react'
 import { data } from './aboutData'
+import AnimatedNumber from "react-animated-numbers"
 
 const About = () => {
-    const countRef = useRef(null);
 
-    useEffect(()=>{
-        // const min = parseInt(countRef.current.textContent);
-        // const number = parseInt(countRef.current.getAttribute('data-target'));
-        // const speed = 200,
-        // const inc = 
-        // console.log(min,number)
-        countRef.current.textContent = 300;
-        // setTimeout(()=>{
-
-        // }, 1000)
-    },[])
+    // useEffect(()=>{        
+    // },[])
 
     return (
         <div className='about'>
@@ -30,7 +21,17 @@ const About = () => {
                             <section key={id} className='info__section'>
                                 <div className="icon">{icon}</div>
                                 <div className="title">{title}</div>
-                                <div className="count" data-target={count} ref={countRef}>0</div>
+                                <div className="count">
+                                    <AnimatedNumber
+                                        fontStyle={{ fontFamily: "Nunito", fontSize: 40 }}
+                                        animateToNumber={count}
+                                        includeComma
+                                        config={{ tension: 89, friction: 40 }}
+                                        onStart={() => console.log("onStart")}
+                                        onFinish={() => console.log("onFinish")}
+                                        animationType={"random"}
+                                    />+
+                                </div>
                             </section>
                         )
                     })                
