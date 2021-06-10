@@ -39,6 +39,8 @@ const ProductDetails = () => {
                         )
                     }
                 })
+            }{
+                products.find(item => item.id === id) === undefined && <div className='error-msg'><p>Product with such an ID doesn't exist. Please checkout other products...</p></div>
             }
         </div>
     )

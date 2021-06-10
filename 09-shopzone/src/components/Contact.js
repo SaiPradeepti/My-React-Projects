@@ -24,7 +24,7 @@ const Contact = () => {
             <div className="contact__form"> 
                 <form className="form">
                     {
-                        msgSubmitted && <h1 className='msg-submitted'>Thank you for contacting us. We will get back to you soon...</h1>
+                        msgSubmitted && <p className='msg-submitted'>Thank you for contacting us. We will get back to you soon...</p>
                     }
                     {   !msgSubmitted &&(
                         <>
