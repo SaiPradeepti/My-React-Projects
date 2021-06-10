@@ -6,6 +6,7 @@ import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
 import About from './components/About'
 import Contact from './components/Contact'
+import Error from './components/Error'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -27,9 +28,9 @@ const App = () => {
           <Route path='/contact'>
             <Contact />
           </Route>
-          {/* <Route path='*'>
+          <Route path='*'>
             <Error />
-          </Route> */}
+          </Route>
         </Switch>
         <Footer />
       </Router>

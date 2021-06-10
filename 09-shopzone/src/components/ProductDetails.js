@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
 import { useGlobalContext} from './context'
 import { Link } from 'react-router-dom'
+import Error from './Error'
 
 
 const ProductDetails = () => {
@@ -18,7 +19,8 @@ const ProductDetails = () => {
         <div className='productDetails'>
             {
                 products.map(item => {
-                    if(item.id === parseInt(id)){
+                    if(parseInt(item.id) === parseInt(id)){
+                        console.log(item)
                         const {id,title,price,description,image} = item;
                         return (
                             <article key={id} className='product'>
