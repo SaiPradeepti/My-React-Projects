@@ -43,3 +43,9 @@ $border: 5px solid red;
     invert(0.08) saturate(0.88) sepia(0.03);
   transition: all 200ms ease;
 }
+
+@mixin responsive($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

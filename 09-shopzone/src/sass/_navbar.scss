@@ -6,7 +6,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-around;
-  padding: 1rem 5rem;
+  padding: 0rem 5rem;
   box-shadow: $light-shadow;
   background: $clr-black;
 
@@ -27,6 +27,16 @@
     list-style-type: none;
     display: flex;
     gap: 2rem;
+
+    @include responsive(1000px) {
+      gap: 1rem;
+    }
+    @include responsive(900px) {
+      gap: 0.5rem;
+    }
+    @include responsive(800px) {
+      display: none;
+    }
   }
   .link {
     font-weight: bolder;
@@ -38,5 +48,9 @@
     &:hover {
       background: $clr-grey;
     }
+  }
+
+  @include responsive(1100px) {
+    padding: 0rem 1rem;
   }
 }
