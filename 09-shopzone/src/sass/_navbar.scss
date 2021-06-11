@@ -5,8 +5,8 @@
   height: 15vh;
   display: flex;
   align-items: baseline;
-  justify-content: space-around;
-  padding: 0rem 5rem;
+  justify-content: space-between;
+  padding: 0rem 10rem;
   box-shadow: $light-shadow;
   background: $clr-black;
 
@@ -50,7 +50,77 @@
     }
   }
 
+  .hamburger-icon {
+    color: $clr-white;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+
+    @include responsive(800px) {
+      display: block;
+    }
+  }
+
   @include responsive(1100px) {
-    padding: 0rem 1rem;
+    padding: 0rem 4rem;
+  }
+  @include responsive(800px) {
+    padding: 0rem 3rem;
   }
 }
+
+.overlay {
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  animation: animateOverlayIn 1s ease;
+
+  #{&}__container {
+    @include centerElement;
+    height: 100%;
+    position: relative;
+
+    .overlay__links {
+      height: 50%;
+      width: 50%;
+      @include centerElement;
+      flex-direction: column;
+      gap: 2rem;
+
+      li a {
+        font-size: 2.5rem;
+      }
+    }
+
+    .close-icon {
+      position: absolute;
+      right: 12%;
+      top: 4%;
+      color: $clr-white;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+    }
+  }
+}
+
+@keyframes animateOverlayIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+// @keyframes animateOverlayOut {
+//   from {
+//     transform: scale(1);
+//   }
+//   to {
+//     transform: scale(0);
+//   }
+// }

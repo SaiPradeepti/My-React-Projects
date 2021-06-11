@@ -1,7 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { GiHamburgerMenu } from 'react-icons/gi'
+import { AiOutlineClose } from 'react-icons/ai'
+import { useGlobalContext } from './context'
 
 const Navbar = () => {
+    const {dispatch,showOverlay} = useGlobalContext();
+
     return (
         <nav className='nav'>
             <Link to='/' className='brand'>
@@ -24,6 +29,42 @@ const Navbar = () => {
                     </Link>
                 </li>
             </ul>
+            <div className="hamburger-icon" onClick={()=>{dispatch({type: 'showOverlay'})}} style={showOverlay ? {display: 'none'} : {}}>
+                <GiHamburgerMenu />
+            </div>
+            {
+                showOverlay && (
+                    <div className="overlay">
+                        <div className="overlay__container">
+                            <ul className="overlay__links">
+                            <li onClick={()=>dispatch({type: 'hideOverlay'})}>
+                                <Link to='/' className='link'>
+                                    Home
+                                </Link>
+                            </li>
+                            <li onClick={()=>dispatch({type: 'hideOverlay'})}>
+                                <Link to='/products' className='link'>
+                                    Products
+                                </Link>
+                            </li>
+                            <li onClick={()=>dispatch({type: 'hideOverlay'})}>
+                                <Link to='/about' className='link'>
+                                    About
+                                </Link>
+                            </li>
+                            <li onClick={()=>dispatch({type: 'hideOverlay'})}>
+                                <Link to='/contact' className='link'>
+                                    Contact
+                                </Link>
+                            </li>
+                        </ul>
+                        <div className="close-icon" onClick={()=>dispatch({type: 'hideOverlay'})}>
+                            <AiOutlineClose  />
+                        </div>
+                        </div>
+                    </div>
+                )
+            }
         </nav>
     )
 }

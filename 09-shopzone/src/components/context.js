@@ -16,7 +16,8 @@ export function AppProvider({children}){
         loading: true,
         error: false,
         filter: 'all',
-        msgSubmitted: false,      
+        msgSubmitted: false,
+        showOverlay: false,
     }
 
     const [state,dispatch] = useReducer(reducer,initialState);

@@ -16,6 +16,18 @@ export const reducer = (state,action) => {
         case 'msgSubmittedTrue':
             state.msgSubmitted = true;
             return {...state}
+        case 'showOverlay':
+            console.log('showing overlay')
+            return {
+                ...state,
+                showOverlay: true
+            }
+        case 'hideOverlay':
+            console.log('hiding overlay')
+            return {
+                ...state,
+                showOverlay: false
+            }
         default:
             return {...state}
     }
