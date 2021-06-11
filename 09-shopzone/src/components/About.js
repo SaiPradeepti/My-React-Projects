@@ -19,7 +19,7 @@ const About = () => {
                                 <div className="title">{title}</div>
                                 <div className="count">
                                     <AnimatedNumber
-                                        fontStyle={{ fontFamily: "Nunito", fontSize: 40 }}
+                                        fontStyle={{ fontFamily: "Nunito", fontSize: 30 }}
                                         animateToNumber={count}
                                         includeComma
                                         config={{ tension: 89, friction: 40 }}
