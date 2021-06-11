@@ -1,9 +1,10 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import { useGlobalContext} from './context'
 import { contactData} from './data'
 
 const Contact = () => {
     const { dispatch, msgSubmitted } = useGlobalContext();
+    const [formInput, setFormInput] = useState({email:'',textarea:''});
 
     return (
         <div className='contact'>
@@ -29,12 +30,25 @@ const Contact = () => {
                     {   !msgSubmitted &&(
                         <>
                             <div className="form-control">
-                                <input type="text" name="email" id="email" placeholder='Enter your email-id' required autoComplete='off'/>
+                                <input type="text" value={formInput.email}  name="email" id="email" placeholder='Enter your email-id' required autoComplete='off' onChange={(e)=>setFormInput(()=>{
+                                    return {
+                                        ...formInput,
+                                        email: e.target.value,
+                                    }
+                                })}/>
                             </div>
                             <div className="form-control">
-                                <textarea className='textarea' placeholder='Type your message...' required></textarea>
+                                <textarea value={formInput.textarea} className='textarea' placeholder='Type your message...' required onChange={(e)=>setFormInput(()=>{
+                                    return {
+                                        ...formInput,
+                                        textarea: e.target.value,
+                                    }
+                                })}></textarea>
                             </div>
-                            <button className='btn' onClick={()=>dispatch({type: 'msgSubmittedTrue'})}>Submit</button>            
+                            <button className='btn' onClick={()=>{
+                                if(formInput.email && formInput.textarea)
+                                    dispatch({type: 'msgSubmittedTrue'})
+                            }}>Submit</button>            
                         </>
                         )   
                     }
