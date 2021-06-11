@@ -23,11 +23,52 @@
           filter: none;
           transform: scale(1.1);
         }
+
+        @include responsive(600px) {
+          height: 180px;
+          width: 200px;
+          // object-fit: contain;
+        }
       }
     }
 
     .hide {
       opacity: 0;
+    }
+    @include responsive(600px) {
+      display: none;
+    }
+  }
+
+  .smallScreenHero__imgContainer {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: max-content;
+
+    .block {
+      transition: all 1s ease;
+      overflow: hidden;
+
+      img {
+        height: 180px;
+        width: 200px;
+        object-fit: cover;
+        filter: brightness(0.87) contrast(1.11) grayscale(0.1)
+          hue-rotate(-16deg) invert(0.08) saturate(0.88) sepia(0.03);
+        transition: all 200ms ease;
+
+        &:hover {
+          filter: none;
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    .hide {
+      opacity: 0;
+    }
+    @include responsive(600px) {
+      display: grid;
     }
   }
 }

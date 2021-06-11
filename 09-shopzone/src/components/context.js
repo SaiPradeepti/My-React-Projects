@@ -1,6 +1,3 @@
-// import React, { useContext, useReducer } from 'react'
-// import { reducer } from './reducer'
-
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
 import { reducer } from './reducer';
 import { useFetch } from './useFetch'

@@ -49,3 +49,17 @@ $border: 5px solid red;
     @content;
   }
 }
+
+@mixin msg {
+  height: 75vh;
+  background: $clr-black;
+  color: $clr-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  @media screen and (max-width: 440px) {
+    height: 80vh;
+  }
+}

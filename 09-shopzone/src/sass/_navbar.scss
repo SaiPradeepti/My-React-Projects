@@ -6,7 +6,7 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 0rem 10rem;
+  padding: 1rem 10rem;
   box-shadow: $light-shadow;
   background: $clr-black;
 
@@ -22,6 +22,13 @@
     font-weight: bolder;
     color: $clr-white;
     letter-spacing: 0.35rem;
+
+    @include responsive(1100px) {
+      font-size: 2.5rem;
+    }
+    @include responsive(440px) {
+      font-size: 2rem;
+    }
   }
   .links {
     list-style-type: none;
@@ -59,13 +66,24 @@
     @include responsive(800px) {
       display: block;
     }
+    @include responsive(440px) {
+      font-size: 1.5rem;
+    }
   }
 
   @include responsive(1100px) {
+    align-items: center;
     padding: 0rem 4rem;
+    height: 15vh;
   }
   @include responsive(800px) {
     padding: 0rem 3rem;
+  }
+  @include responsive(600px) {
+    padding: 0rem 1rem;
+  }
+  @include responsive(440px) {
+    height: 10vh;
   }
 }
 
@@ -90,9 +108,14 @@
       @include centerElement;
       flex-direction: column;
       gap: 2rem;
+      list-style-type: none;
 
       li a {
         font-size: 2.5rem;
+
+        @include responsive(440px) {
+          font-size: 1.5rem;
+        }
       }
     }
 
@@ -104,6 +127,10 @@
       color: white;
       font-size: 2.5rem;
       cursor: pointer;
+
+      @include responsive(440px) {
+        font-size: 1.5rem;
+      }
     }
   }
 }

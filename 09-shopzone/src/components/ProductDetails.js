@@ -9,10 +9,22 @@ const ProductDetails = () => {
     const { id } = useParams(); 
     const { dispatch, loading, products} = useGlobalContext();
 
+    useEffect(()=>{
+        console.log()
+    },[products])
+
     if(loading){
         return <div className='loading-msg'>
             <h1>Loading details of selected item..</h1>
         </div>
+    }
+
+    if((products.some(item=>parseInt(item.id)===parseInt(id)) === false)){
+        return (
+            <div className='error-msg'>
+                <p>Product with such an ID doesn't exist. Please checkout other products...</p>
+            </div>
+        )
     }
 
     return (
@@ -39,8 +51,6 @@ const ProductDetails = () => {
                         )
                     }
                 })
-            }{
-                products.find(item => item.id === id) === undefined && <div className='error-msg'><p>Product with such an ID doesn't exist. Please checkout other products...</p></div>
             }
         </div>
     )
