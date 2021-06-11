@@ -32,15 +32,36 @@
         align-self: center;
         justify-self: center;
         padding: 1rem;
+
+        @include responsive(440px) {
+          font-size: 1.2rem;
+        }
       }
       .contact__title {
         font-size: 1.4rem;
         text-transform: uppercase;
         color: $clr-light-grey;
+
+        @include responsive(440px) {
+          font-size: 1rem;
+        }
       }
       .contact__inf {
         color: $clr-light-grey;
       }
+
+      @include responsive(1100px) {
+        width: 90%;
+        padding: 1rem 2rem;
+        gap: 0.5rem 2rem;
+      }
+      @include responsive(440px) {
+        gap: 0.5rem 1rem;
+      }
+    }
+    @include responsive(900px) {
+      gap: 1rem;
+      align-items: center;
     }
   }
 
@@ -59,6 +80,10 @@
 
       .form-control {
         margin-bottom: 3rem;
+
+        @include responsive(440px) {
+          margin-bottom: 2rem;
+        }
       }
 
       .btn {
@@ -75,8 +100,39 @@
         &:hover {
           background: $clr-light-grey;
         }
+        @include responsive(440px) {
+          font-size: 1rem;
+          padding: 0.3rem 0.6rem;
+        }
+      }
+
+      @include responsive(1100px) {
+        padding: 4rem 2rem;
+        width: 90%;
+      }
+      @include responsive(440px) {
+        padding: 2rem 1rem;
       }
     }
+    @include responsive(440px) {
+      margin-top: 2rem;
+    }
+  }
+
+  @include responsive(1200px) {
+    gap: 0rem;
+    padding: 2rem;
+  }
+  @include responsive(900px) {
+    gap: 1rem;
+    padding: 3rem;
+    grid-template-columns: 1fr;
+    height: auto;
+    grid-auto-rows: max-content;
+    gap: 2rem;
+  }
+  @include responsive(440px) {
+    padding: 1.5rem;
   }
 }
 
@@ -85,6 +141,17 @@
   text-align: center;
   color: $clr-light-grey;
   font-size: 2rem;
+
+  @include responsive(900px) {
+    font-size: 1.5rem;
+  }
+  @include responsive(600px) {
+    padding: 2rem 1rem;
+  }
+  @include responsive(440px) {
+    padding: 3rem 0rem;
+    font-size: 1.2rem;
+  }
 }
 
 input[type="text"] {
