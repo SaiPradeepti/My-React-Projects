@@ -54,6 +54,9 @@ const Products = () => {
                                 </div>
                                 <div className="product__title">{title}</div>
                             </Link>
+                            <div className="addToCart">
+                                add to cart
+                            </div>
                         </section>
                     )
                 })
