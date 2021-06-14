@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Navbar from './components/Navbar'
+import Cart from './components/Cart'
 import Hero from './components/Hero'
 import Products from './components/Products'
 import ProductDetails from './components/ProductDetails'
@@ -14,6 +15,7 @@ const App = () => {
     <div className='app'>
       <Router>        
         <Navbar />
+        <Cart />
         <Switch>
           <Route exact path='/'>
             <Hero />

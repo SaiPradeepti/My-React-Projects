@@ -41,6 +41,11 @@ export const reducer = (state,action) => {
                 ...state,
                 formInput: newFormInput,
             }
+        case 'toggleCart':
+            return{
+                ...state,
+                showCart: !state.showCart,
+            }
         default:
             return {...state}
     }

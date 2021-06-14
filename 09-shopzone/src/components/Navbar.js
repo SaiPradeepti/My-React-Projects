@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiOutlineClose } from 'react-icons/ai'
 import { useGlobalContext } from './context'
+import { FaShoppingCart } from 'react-icons/fa'
 
 const Navbar = () => {
     const {dispatch,showOverlay} = useGlobalContext();
@@ -27,6 +28,11 @@ const Navbar = () => {
                     <Link to='/contact' className='link'>
                         Contact
                     </Link>
+                </li>
+                <li>
+                    <div className='cart-icon link' onClick={()=>dispatch({type:'toggleCart'})}>
+                        <FaShoppingCart />
+                    </div>
                 </li>
             </ul>
             <div className="hamburger-icon" onClick={()=>{dispatch({type: 'showOverlay'})}} style={showOverlay ? {display: 'none'} : {}}>

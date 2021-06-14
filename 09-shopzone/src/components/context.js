@@ -17,6 +17,7 @@ export function AppProvider({children}){
         showOverlay: false,
         iconId: 0,
         formInput: {email:'',textarea:''},
+        showCart: false,
     }
 
     const [state,dispatch] = useReducer(reducer,initialState);
