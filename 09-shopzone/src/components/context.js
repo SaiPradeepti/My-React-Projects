@@ -10,6 +10,7 @@ export function AppProvider({children}){
     const initialState = {
         products: [],
         categories: [],
+        cart: [],
         loading: true,
         error: false,
         filter: 'all',

@@ -61,6 +61,14 @@
   .cart-icon {
     color: $clr-white;
     font-size: 1.5rem;
+    position: relative;
+
+    .itemCount {
+      position: absolute;
+      top: -10%;
+      right: 5%;
+      color: $secondary-color;
+    }
   }
 
   .hamburger-icon {
@@ -149,11 +157,3 @@
     transform: scale(1);
   }
 }
-// @keyframes animateOverlayOut {
-//   from {
-//     transform: scale(1);
-//   }
-//   to {
-//     transform: scale(0);
-//   }
-// }

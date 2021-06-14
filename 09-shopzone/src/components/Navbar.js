@@ -32,6 +32,7 @@ const Navbar = () => {
                 <li>
                     <div className='cart-icon link' onClick={()=>dispatch({type:'toggleCart'})}>
                         <FaShoppingCart />
+                        <div className="itemCount">0</div>
                     </div>
                 </li>
             </ul>
