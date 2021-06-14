@@ -3,8 +3,8 @@ import { useGlobalContext} from './context'
 import { contactData} from './data'
 
 const Contact = () => {
-    const { dispatch, msgSubmitted } = useGlobalContext();
-    const [formInput, setFormInput] = useState({email:'',textarea:''});
+    const { dispatch, msgSubmitted, formInput } = useGlobalContext();
+    // const [formInput, setFormInput] = useState({email:'',textarea:''});
     const [iconId,setIconId] = useState(0);
 
     return (
@@ -31,20 +31,10 @@ const Contact = () => {
                     {   !msgSubmitted &&(
                         <>
                             <div className="form-control">
-                                <input type="text" value={formInput.email}  name="email" id="email" placeholder='Enter your email-id' required autoComplete='off' onChange={(e)=>setFormInput(()=>{
-                                    return {
-                                        ...formInput,
-                                        email: e.target.value,
-                                    }
-                                })}/>
+                                <input type="text" value={formInput.email}  name="email" id="email" placeholder='Enter your email-id' required autoComplete='off' onChange={(e)=>dispatch({type: 'setFormInput',payload: {name: e.target.name, value: e.target.value}})}/>
                             </div>
                             <div className="form-control">
-                                <textarea value={formInput.textarea} className='textarea' placeholder='Type your message...' required onChange={(e)=>setFormInput(()=>{
-                                    return {
-                                        ...formInput,
-                                        textarea: e.target.value,
-                                    }
-                                })}></textarea>
+                                <textarea name='textarea' value={formInput.textarea} className='textarea' placeholder='Type your message...' required onChange={(e)=>dispatch({type: 'setFormInput',payload: {name: e.target.name, value: e.target.value}})}></textarea>
                             </div>
                             <button className='btn' onClick={()=>{
                                 if(formInput.email && formInput.textarea)

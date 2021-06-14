@@ -26,7 +26,18 @@ export const reducer = (state,action) => {
                 ...state,
                 showOverlay: false
             }
+        case 'setFormInput':
+            console.log(action.payload);
+            const newFormInput = {
+                ...state.formInput,
+                [action.payload.name]: action.payload.value,
+            }
+            return{
+                ...state,
+                formInput: newFormInput,
+            }
         default:
             return {...state}
     }
 }
+

@@ -15,6 +15,7 @@ export function AppProvider({children}){
         filter: 'all',
         msgSubmitted: false,
         showOverlay: false,
+        formInput: {email:'',textarea:''},
     }
 
     const [state,dispatch] = useReducer(reducer,initialState);

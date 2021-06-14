@@ -61,7 +61,7 @@
     }
 
     &:hover .icon-animate {
-      animation: animateIcon 0.2s ease;
+      animation: animateIcon 1s ease;
     }
 
     @include responsive(900px) {
@@ -184,6 +184,6 @@ input[type="text"] {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(720deg);
   }
 }
