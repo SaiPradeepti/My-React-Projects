@@ -7,7 +7,7 @@ const Hero = () => {
     useEffect(()=>{
        const timeout =setTimeout(()=>{
         setChangeColor(!changeColor);
-       },4000);
+       },3000);
 
         return () => {
             clearTimeout(timeout); 

@@ -5,6 +5,7 @@ import { contactData} from './data'
 const Contact = () => {
     const { dispatch, msgSubmitted } = useGlobalContext();
     const [formInput, setFormInput] = useState({email:'',textarea:''});
+    const [iconId,setIconId] = useState(0);
 
     return (
         <div className='contact'>
@@ -13,8 +14,8 @@ const Contact = () => {
                     contactData.map(item => {
                         const {id,title,info,icon} = item;
                         return (
-                            <section key={id} className='contact__info'>
-                                <div className="contact__icon">{icon}</div>
+                            <section key={id} className='contact__info' onMouseOver={()=>setIconId(id)} onMouseOut={()=>setIconId(0)}>
+                                <div className={iconId === id ?"contact__icon icon-animate":"contact__icon"}>{icon}</div>
                                 <div className="contact__title">{title}</div>
                                 <div className="contact__inf">{info}</div>
                             </section>
