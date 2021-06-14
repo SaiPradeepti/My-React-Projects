@@ -1,11 +1,9 @@
-import React,{ useState } from 'react'
+import React from 'react'
 import { useGlobalContext} from './context'
 import { contactData} from './data'
 
 const Contact = () => {
-    const { dispatch, msgSubmitted, formInput } = useGlobalContext();
-    // const [formInput, setFormInput] = useState({email:'',textarea:''});
-    const [iconId,setIconId] = useState(0);
+    const { dispatch, msgSubmitted, iconId, formInput } = useGlobalContext();
 
     return (
         <div className='contact'>
@@ -14,7 +12,7 @@ const Contact = () => {
                     contactData.map(item => {
                         const {id,title,info,icon} = item;
                         return (
-                            <section key={id} className='contact__info' onMouseOver={()=>setIconId(id)} onMouseOut={()=>setIconId(0)}>
+                            <section key={id} className='contact__info' onMouseOver={()=>dispatch({type:'setIconId',payload: id})} onMouseOut={()=>dispatch({type:'setIconId',payload: 0})}>
                                 <div className={iconId === id ?"contact__icon icon-animate":"contact__icon"}>{icon}</div>
                                 <div className="contact__title">{title}</div>
                                 <div className="contact__inf">{info}</div>

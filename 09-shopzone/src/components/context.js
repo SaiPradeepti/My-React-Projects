@@ -15,6 +15,7 @@ export function AppProvider({children}){
         filter: 'all',
         msgSubmitted: false,
         showOverlay: false,
+        iconId: 0,
         formInput: {email:'',textarea:''},
     }
 

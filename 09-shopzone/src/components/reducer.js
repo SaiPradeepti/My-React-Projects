@@ -16,6 +16,11 @@ export const reducer = (state,action) => {
         case 'msgSubmittedTrue':
             state.msgSubmitted = true;
             return {...state}
+        case 'setIconId':
+            return {
+                ...state,
+                iconId: action.payload
+            }
         case 'showOverlay':
             return {
                 ...state,
