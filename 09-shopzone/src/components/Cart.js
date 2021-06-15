@@ -25,6 +25,9 @@ const Cart = () => {
                                 <div className="section__price">
                                     $ {price}
                                 </div>
+                                <div className="section__removeItem" onClick={()=>dispatch({type:'removeFromCart',payload: {id}})}>
+                                   remove
+                                </div>
                                 <div className="section__quantity">
                                     <div className="incIcon" onClick={()=>dispatch({type:'changeCount',payload:{operation:'increment',id: id}})}>
                                         <FaChevronUp />
@@ -32,12 +35,9 @@ const Cart = () => {
                                     <div className="quantity">
                                         {count}
                                     </div>
-                                    <div className="decIcon">
+                                    <div className="decIcon" onClick={()=>dispatch({type:'changeCount',payload:{operation:'decrement',id: id}})}>
                                         <FaChevronDown />
                                     </div>
-                                    {/* <div className="decIcon" onClick={()=>dispatch({type:'changeCount',payload:{operation:'decrement',id: id}})}>
-                                        <FaChevronDown />
-                                    </div> */}
 
                                 </div>
                             </div>

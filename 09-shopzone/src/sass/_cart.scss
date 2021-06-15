@@ -53,7 +53,8 @@
       justify-content: space-between;
       grid-template-areas:
         "title quantity"
-        "price quantity";
+        "price quantity"
+        "remove quantity";
 
       & > * {
         // border: 1px solid red;
@@ -70,6 +71,14 @@
         letter-spacing: 0.25rem;
         color: rgb(170, 160, 103);
       }
+
+      .section__removeItem {
+        grid-area: remove;
+        color: $clr-white;
+        cursor: pointer;
+        font-weight: lighter;
+      }
+
       .section__quantity {
         grid-area: quantity;
         display: flex;
