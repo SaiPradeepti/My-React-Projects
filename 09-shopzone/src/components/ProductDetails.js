@@ -7,7 +7,7 @@ import Error from './Error'
 
 const ProductDetails = () => {
     const { id } = useParams(); 
-    const { dispatch, loading, products} = useGlobalContext();
+    const { dispatch, loading, products, cart } = useGlobalContext();
 
     useEffect(()=>{
         console.log()
@@ -42,6 +42,11 @@ const ProductDetails = () => {
                                     </div>
                                 </div>
                                 <div className="product__details">
+                                    <div className={cart.some(item=>item.id===id) ? "addToCart blur" : "addToCart" } onClick={()=>dispatch({type:'addToCart',payload: {id}})}>
+                                        { 
+                                            cart.some(item=>item.id===id) ? <p>Item added to cart</p> : <p>add to cart</p>
+                                        }
+                                    </div>
                                     <div className="title">{title}</div>
                                     <div className="price">$ {price}</div>
                                     <div className="desc">{description}</div>

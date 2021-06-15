@@ -71,4 +71,7 @@
       display: grid;
     }
   }
+  @include responsive(440px) {
+    height: 80vh;
+  }
 }

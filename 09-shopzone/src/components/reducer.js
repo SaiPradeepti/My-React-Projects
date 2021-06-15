@@ -46,6 +46,19 @@ export const reducer = (state,action) => {
                 ...state,
                 showCart: !state.showCart,
             }
+        case 'addToCart':
+            console.log(action.payload.id)
+            state.products.forEach(item=>{
+                if(item.id === action.payload.id){
+                    if(!state.cart.some(item=>item.id===action.payload.id)){
+                        item.count = 0;
+                        state.cart.push(item);
+                    }                        
+                }
+            })
+            return {
+                ...state,
+            }
         default:
             return {...state}
     }

@@ -3,7 +3,7 @@ import { useGlobalContext} from './context'
 import { Link } from 'react-router-dom'
 
 const Products = () => {
-    const { dispatch, categories, filter, products, loading, error} = useGlobalContext();
+    const { dispatch, categories, cart, filter, products, loading, error} = useGlobalContext();
 
     const [filteredProducts,setFilteredProducts] = useState([]);
 
@@ -54,8 +54,10 @@ const Products = () => {
                                 </div>
                                 <div className="product__title">{title}</div>
                             </Link>
-                            <div className="addToCart">
-                                add to cart
+                            <div className={cart.some(item=>item.id===id) ? "addToCart blur" : "addToCart" } onClick={()=>dispatch({type:'addToCart',payload: {id}})}>
+                            { 
+                                cart.some(item=>item.id===id) ? <p>Item added to cart</p> : <p>add to cart</p>
+                            }
                             </div>
                         </section>
                     )

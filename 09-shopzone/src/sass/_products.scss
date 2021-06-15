@@ -57,7 +57,7 @@
       color: $clr-white;
       padding: 0.5rem 1rem;
       border-radius: 10px;
-      transform: translateX(100%);
+      transform: translateX(105%);
       transition: all 0.5s ease;
     }
 
@@ -68,6 +68,9 @@
         transform: translateX(10%);
         cursor: pointer;
       }
+    }
+    @include responsive(440px) {
+      width: max-content;
     }
   }
 

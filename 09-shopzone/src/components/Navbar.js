@@ -64,6 +64,12 @@ const Navbar = () => {
                                     Contact
                                 </Link>
                             </li>
+                            <li onClick={()=>dispatch({type: 'hideOverlay'})}>
+                                <div className='cart-icon link' onClick={()=>dispatch({type:'toggleCart'})}>
+                                    <FaShoppingCart />
+                                    <div className="itemCount">0</div>
+                                </div>
+                            </li>
                         </ul>
                         <div className="close-icon" onClick={()=>dispatch({type: 'hideOverlay'})}>
                             <AiOutlineClose  />

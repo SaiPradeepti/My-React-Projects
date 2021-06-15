@@ -48,7 +48,6 @@
       .icon {
         font-size: 4rem;
         grid-row: span 2;
-        // justify-self: center;
 
         @include responsive(1100px) {
           font-size: 3.5rem;
@@ -65,11 +64,20 @@
         font-weight: bold;
         display: flex;
       }
+
+      @include responsive(600px) {
+        gap: 1rem 0rem;
+        padding: 1rem 0rem 1rem 1rem;
+      }
     }
 
     @include responsive(1100px) {
       gap: 1rem;
       padding: 2rem 3rem;
+    }
+
+    @include responsive(600px) {
+      padding: 1rem 1rem;
     }
   }
 
