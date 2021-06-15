@@ -1,5 +1,5 @@
 export const reducer = (state,action) => {
-
+    let newCart;
     switch(action.type){
         case 'setErrorTrue':
             state.error = true;
@@ -47,17 +47,35 @@ export const reducer = (state,action) => {
                 showCart: !state.showCart,
             }
         case 'addToCart':
-            console.log(action.payload.id)
             state.products.forEach(item=>{
                 if(item.id === action.payload.id){
-                    if(!state.cart.some(item=>item.id===action.payload.id)){
-                        item.count = 0;
-                        state.cart.push(item);
-                    }                        
+                        if(!state.cart.some(item=>item.id===action.payload.id)){
+                            item.count = 1;
+                            newCart =  [ ...state.cart, item ];
+                        }            
                 }
             })
             return {
                 ...state,
+                cart: newCart,
+            }
+        case 'changeCount':
+            newCart = state.cart.map(item=>{
+                if(item.id===action.payload.id){                    
+                    if(action.payload.operation === 'increment'){
+                        console.log(item.count)
+                        item.count = item.count + 1;
+                        console.log(item.count)
+                    }
+                        // item.count +=1;
+                    else if(action.payload.operation === 'decrement')
+                        item.count -=1
+                }
+                return item;
+            })
+            return {
+                ...state,
+                cart: newCart,
             }
         default:
             return {...state}

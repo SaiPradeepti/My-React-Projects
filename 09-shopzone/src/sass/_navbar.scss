@@ -108,7 +108,7 @@
   left: 0;
   height: 100vh;
   width: 100vw;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   animation: animateOverlayIn 1s ease;
 
   #{&}__container {
@@ -125,7 +125,7 @@
       list-style-type: none;
 
       li a {
-        font-size: 2.5rem;
+        font-size: 2rem;
 
         @include responsive(440px) {
           font-size: 1.5rem;
@@ -146,6 +146,10 @@
         font-size: 1.5rem;
       }
     }
+  }
+
+  @media screen and (min-width: 800px) {
+    display: none;
   }
 }
 

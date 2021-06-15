@@ -32,7 +32,6 @@ const ProductDetails = () => {
             {
                 products.map(item => {
                     if(parseInt(item.id) === parseInt(id)){
-                        console.log(item)
                         const {id,title,price,description,image} = item;
                         return (
                             <article key={id} className='product'>
@@ -42,11 +41,9 @@ const ProductDetails = () => {
                                     </div>
                                 </div>
                                 <div className="product__details">
-                                    <div className={cart.some(item=>item.id===id) ? "addToCart blur" : "addToCart" } onClick={()=>dispatch({type:'addToCart',payload: {id}})}>
-                                        { 
-                                            cart.some(item=>item.id===id) ? <p>Item added to cart</p> : <p>add to cart</p>
-                                        }
-                                    </div>
+                                    {
+                                        cart.some(item=>item.id===id) ? <div className='addToCart blur'><p>Item added to cart</p></div> : <div className='addToCart' onClick={()=>dispatch({type:'addToCart',payload: {id}})}><p>add to cart</p></div>
+                                    }
                                     <div className="title">{title}</div>
                                     <div className="price">$ {price}</div>
                                     <div className="desc">{description}</div>

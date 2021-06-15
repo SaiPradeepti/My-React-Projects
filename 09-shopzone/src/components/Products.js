@@ -54,11 +54,9 @@ const Products = () => {
                                 </div>
                                 <div className="product__title">{title}</div>
                             </Link>
-                            <div className={cart.some(item=>item.id===id) ? "addToCart blur" : "addToCart" } onClick={()=>dispatch({type:'addToCart',payload: {id}})}>
-                            { 
-                                cart.some(item=>item.id===id) ? <p>Item added to cart</p> : <p>add to cart</p>
-                            }
-                            </div>
+                            {
+                                cart.some(item=>item.id===id) ? <div className='addToCart blur'><p>Item added to cart</p></div> : <div className='addToCart' onClick={()=>dispatch({type:'addToCart',payload: {id}})}><p>add to cart</p></div>
+                            }                            
                         </section>
                     )
                 })
