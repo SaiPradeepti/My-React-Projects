@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -6,7 +6,11 @@ import { useGlobalContext } from './context'
 import { FaShoppingCart } from 'react-icons/fa'
 
 const Navbar = () => {
-    const {dispatch,showOverlay} = useGlobalContext();
+    const { dispatch, cart, totalItems, showOverlay } = useGlobalContext();
+
+    useEffect(()=>{
+        dispatch({type: 'calTotalItems'});
+    },[cart])
 
     return (
         <nav className='nav'>
@@ -32,7 +36,7 @@ const Navbar = () => {
                 <li>
                     <div className='cart-icon link' onClick={()=>dispatch({type:'toggleCart'})}>
                         <FaShoppingCart />
-                        <div className="itemCount">0</div>
+                        <div className="itemCount">{totalItems}</div>
                     </div>
                 </li>
             </ul>
@@ -67,7 +71,7 @@ const Navbar = () => {
                             <li onClick={()=>dispatch({type: 'hideOverlay'})}>
                                 <div className='cart-icon link' onClick={()=>dispatch({type:'toggleCart'})}>
                                     <FaShoppingCart />
-                                    <div className="itemCount">0</div>
+                                    <div className="itemCount">{totalItems}</div>
                                 </div>
                             </li>
                         </ul>

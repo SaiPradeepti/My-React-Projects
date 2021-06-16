@@ -69,19 +69,32 @@ export const reducer = (state,action) => {
             newCart = state.cart.map(item=>{
                 if(item.id===action.payload.id){                    
                     if(action.payload.operation === 'increment'){
-                        console.log(item.count)
+                        // console.log(item.count)
                         // item.count = item.count + 1;
                         return { ...item, count: item.count+1}
                     }
                         // item.count +=1;
                     else if(action.payload.operation === 'decrement')
-                        item.count -=1
+                        // item.count -=1
+                        return { ...item, count: item.count-1}
                 }
                 return item;
             }).filter((item) => item.count > 0)
             return {
                 ...state,
                 cart: newCart,
+            }
+        case 'calTotalItems':
+            const sum = state.cart.reduce((totalCount,currentItem) => totalCount + currentItem.count, 0) ;
+            return {
+                ...state,
+                totalItems: sum,
+            }
+        case 'calTotalAmount':
+            const totalSum = state.cart.reduce((totalAmount,currentItem) => totalAmount + (currentItem.count * currentItem.price), 0);
+            return {
+                ...state,
+                totalAmount: totalSum,
             }
         default:
             return {...state}

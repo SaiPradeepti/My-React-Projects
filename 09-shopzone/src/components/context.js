@@ -11,6 +11,8 @@ export function AppProvider({children}){
         products: [],
         categories: [],
         cart: [],
+        totalItems: 0,
+        totalAmount: 0,
         loading: true,
         error: false,
         filter: 'all',

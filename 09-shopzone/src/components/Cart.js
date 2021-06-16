@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useGlobalContext } from './context'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 
 const Cart = () => {
-    const { dispatch, cart, showCart } = useGlobalContext();
+    const { dispatch, cart, totalAmount, showCart } = useGlobalContext();
+
+    useEffect(()=>{
+        dispatch({type: 'calTotalAmount'});
+    },[cart])
+
     return (
         <div className={showCart?'cart':'cart hide-cart'}>
             <div className="cart__title">
@@ -44,6 +49,12 @@ const Cart = () => {
                         )
                     })
                 }
+            </div>
+            <div className="cart__total">
+                <div className="section__total">
+                    <div className='title'>total</div>
+                    <div className='totalAmout'>$ {totalAmount.toFixed(2)}</div>
+                </div>
             </div>
         </div>
     )
