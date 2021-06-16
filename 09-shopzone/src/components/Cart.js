@@ -1,28 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useGlobalContext } from './context'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 
 const Cart = () => {
     const { dispatch, cart, totalAmount, showCart } = useGlobalContext();
+    const cartRef = useRef(null)
 
     useEffect(()=>{
         dispatch({type: 'calTotalAmount'});
     },[cart])
 
-    // if(cart.length === 0){
-    //     return (
-    //         <div className={showCart?'cart':'cart hide-cart'}>
-    //             <div className="emtpyCart-msg">
-    //                 your cart is empty!
-    //             </div>
-    //         </div>
-            
-    //     )
-    // }
+    useEffect(()=>{
+        const handleClick = (e) => {
+            if (cartRef.current && !cartRef.current.contains(e.target)){
+                if(showCart){
+                    dispatch({type: 'toggleCart'})
+                    console.log('closing cart')
+                }
+            }
+        }
+        document.addEventListener('click',handleClick);
+        return () => {
+            document.removeEventListener('click',handleClick);
+        }
+    })
 
     return (
-        <div className={showCart?'cart':'cart hide-cart'}>
+        <div className={showCart?'cart':'cart hide-cart'} ref={cartRef}>
             <div className="cart__title">
                 your cart
             </div>
