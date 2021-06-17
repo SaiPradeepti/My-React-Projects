@@ -42,6 +42,7 @@ export const reducer = (state,action) => {
                 formInput: newFormInput,
             }
         case 'toggleCart':
+
             return{
                 ...state,
                 showCart: !state.showCart,
@@ -68,14 +69,9 @@ export const reducer = (state,action) => {
         case 'changeCount':
             newCart = state.cart.map(item=>{
                 if(item.id===action.payload.id){                    
-                    if(action.payload.operation === 'increment'){
-                        // console.log(item.count)
-                        // item.count = item.count + 1;
+                    if(action.payload.operation === 'increment')
                         return { ...item, count: item.count+1}
-                    }
-                        // item.count +=1;
                     else if(action.payload.operation === 'decrement')
-                        // item.count -=1
                         return { ...item, count: item.count-1}
                 }
                 return item;
@@ -91,13 +87,20 @@ export const reducer = (state,action) => {
                 totalItems: sum,
             }
         case 'calTotalAmount':
-            const totalSum = state.cart.reduce((totalAmount,currentItem) => totalAmount + (currentItem.count * currentItem.price), 0);
+            const totalSum = (state.cart.reduce((totalAmount,currentItem) => totalAmount + (currentItem.count * currentItem.price), 0)).toFixed(2);
             return {
                 ...state,
                 totalAmount: totalSum,
+            }
+        case 'addExistingCart':
+            newCart = [];
+            if(action.payload.existingCart)
+                newCart = action.payload.existingCart;
+            return {
+                ...state,
+                cart: newCart,
             }
         default:
             return {...state}
     }
 }
-

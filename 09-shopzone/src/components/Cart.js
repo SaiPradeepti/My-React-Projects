@@ -1,33 +1,30 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useGlobalContext } from './context'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 
 const Cart = () => {
     const { dispatch, cart, totalAmount, showCart } = useGlobalContext();
-    const cartRef = useRef(null)
 
     useEffect(()=>{
-        dispatch({type: 'calTotalAmount'});
-    },[cart])
+        if(localStorage.getItem('cart') !== ''){
+            const existingCart = JSON.parse(localStorage.getItem('cart'));
+            dispatch({type: 'addExistingCart',payload: {existingCart: existingCart}});
+        } 
+    },[dispatch])
 
     useEffect(()=>{
-        const handleClick = (e) => {
-            if (cartRef.current && !cartRef.current.contains(e.target)){
-                if(showCart){
-                    dispatch({type: 'toggleCart'})
-                    console.log('closing cart')
-                }
-            }
-        }
-        document.addEventListener('click',handleClick);
-        return () => {
-            document.removeEventListener('click',handleClick);
-        }
-    })
+        
+        if(cart.length !== 0){
+            dispatch({type: 'calTotalAmount'});
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }            
+        if(cart.length === 0)
+            localStorage.removeItem('cart')
+    },[cart,dispatch]);
 
     return (
-        <div className={showCart?'cart':'cart hide-cart'} ref={cartRef}>
+        <div className={showCart?'cart':'cart hide-cart'}>
             <div className="cart__title">
                 your cart
             </div>
@@ -78,7 +75,7 @@ const Cart = () => {
                     <div className="cart__total">
                         <div className="section__total">
                             <div className='title'>total</div>
-                            <div className='totalAmout'>$ {totalAmount.toFixed(2)}</div>
+                            <div className='totalAmout'>$ {totalAmount}</div>
                         </div>
                     </div>
                 </>

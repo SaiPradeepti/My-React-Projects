@@ -10,6 +10,7 @@
   opacity: 1;
   transform: translateX(0);
   transition: all 0.9s ease;
+  overflow-y: auto;
 
   .emtpyCart {
     padding: 3rem 4rem;
@@ -91,6 +92,7 @@
         color: $clr-white;
         cursor: pointer;
         font-weight: lighter;
+        justify-self: flex-start;
       }
 
       .section__quantity {
