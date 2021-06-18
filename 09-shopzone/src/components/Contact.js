@@ -1,9 +1,14 @@
-import React from 'react'
+import React,{ useRef, useEffect} from 'react'
 import { ACTIONS, useGlobalContext} from './context'
 import { contactData} from './data'
 
 const Contact = () => {
     const { dispatch, msgSubmitted, iconId, formInput } = useGlobalContext();
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, [])
 
     return (
         <div className='contact'>
@@ -29,7 +34,7 @@ const Contact = () => {
                     {   !msgSubmitted &&(
                         <>
                             <div className="form-control">
-                                <input type="text" value={formInput.email}  name="email" id="email" placeholder='Enter your email-id' required autoComplete='off' onChange={(e)=>dispatch({type: ACTIONS.SET_FORM_INPUT, payload: {name: e.target.name, value: e.target.value}})}/>
+                                <input type="text" value={formInput.email}  name="email" id="email" placeholder='Enter your email-id' required autoComplete='off' onChange={(e)=>dispatch({type: ACTIONS.SET_FORM_INPUT, payload: {name: e.target.name, value: e.target.value}})} ref={inputRef}/>
                             </div>
                             <div className="form-control">
                                 <textarea name='textarea' value={formInput.textarea} className='textarea' placeholder='Type your message...' required onChange={(e)=>dispatch({type: ACTIONS.SET_FORM_INPUT, payload: {name: e.target.name, value: e.target.value}})}></textarea>
