@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useGlobalContext} from './context'
+import { ACTIONS, useGlobalContext} from './context'
 import { Link } from 'react-router-dom'
 
 const Products = () => {
@@ -36,7 +36,7 @@ const Products = () => {
             {
                 categories.map((category,index) => {
                     return (
-                        <div key={index} className={filter.toLowerCase()===category.toLowerCase()?'btn btn-selected':"btn"} onClick={()=>dispatch({type:'setFilter',payload: {filter: category}})}>{category}</div>
+                        <div key={index} className={filter.toLowerCase()===category.toLowerCase()?'btn btn-selected':"btn"} onClick={()=>dispatch({type: ACTIONS.SET_FILTER,payload: {filter: category}})}>{category}</div>
                     )
                 })
             }
@@ -55,7 +55,7 @@ const Products = () => {
                                 <div className="product__title">{title}</div>
                             </Link>
                             {
-                                cart.some(item=>item.id===id) ? <div className='addToCart blur'><p>Item added to cart</p></div> : <div className='addToCart' onClick={()=>dispatch({type:'addToCart',payload: {id}})}><p>add to cart</p></div>
+                                cart.some(item=>item.id===id) ? <div className='addToCart blur'><p>Item added to cart</p></div> : <div className='addToCart' onClick={()=>dispatch({type: ACTIONS.ADD_TO_CART,payload: {id}})}><p>add to cart</p></div>
                             }                            
                         </section>
                     )

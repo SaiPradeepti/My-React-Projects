@@ -1,37 +1,39 @@
+import { ACTIONS } from "./context";
+
 export const reducer = (state,action) => {
     let newCart;
     switch(action.type){
-        case 'setErrorTrue':
+        case ACTIONS.SET_ERROR_TRUE:
             state.error = true;
             return {...state}
-        case 'setProducts':
+        case ACTIONS.SET_PRODUCTS:
             const data = action.payload.data;
             state.products = data;
             state.loading = false;
             state.categories =['All',...new Set(data.map(item=>item.category))];
             return {...state}
-        case 'setFilter':
+        case ACTIONS.SET_FILTER:
             state.filter = action.payload.filter;
             return {...state}
-        case 'msgSubmittedTrue':
+        case ACTIONS.SET_MSG_SUBMITTED:
             state.msgSubmitted = true;
             return {...state}
-        case 'setIconId':
+        case ACTIONS.SET_ICON_ID:
             return {
                 ...state,
                 iconId: action.payload
             }
-        case 'showOverlay':
+        case ACTIONS.SET_SHOW_OVERLAY:
             return {
                 ...state,
                 showOverlay: true
             }
-        case 'hideOverlay':
+        case ACTIONS.SET_HIDE_OVERLAY:
             return {
                 ...state,
                 showOverlay: false
             }
-        case 'setFormInput':
+        case ACTIONS.SET_FORM_INPUT:
             console.log(action.payload);
             const newFormInput = {
                 ...state.formInput,
@@ -41,32 +43,31 @@ export const reducer = (state,action) => {
                 ...state,
                 formInput: newFormInput,
             }
-        case 'toggleCart':
-
+        case ACTIONS.TOGGLE_CART:
             return{
                 ...state,
                 showCart: !state.showCart,
             }
-        case 'addToCart':
+        case ACTIONS.ADD_TO_CART:
             state.products.forEach(item=>{
                 if(item.id === action.payload.id){
-                        if(!state.cart.some(item=>item.id===action.payload.id)){
-                            item.count = 1;
-                            newCart =  [ ...state.cart, item ];
-                        }            
+                    if(!state.cart.some(item=>item.id===action.payload.id)){
+                        item.count = 1;
+                        newCart =  [ ...state.cart, item ];
+                    }            
                 }
             })
             return {
                 ...state,
                 cart: newCart,
             }
-        case 'removeFromCart':
+        case ACTIONS.REMOVE_FROM_CART:
             newCart = state.cart.filter(item=>item.id !== action.payload.id);
             return {
                 ...state,
                 cart: newCart,
             }
-        case 'changeCount':
+        case ACTIONS.CHANGE_COUNT:
             newCart = state.cart.map(item=>{
                 if(item.id===action.payload.id){                    
                     if(action.payload.operation === 'increment')
@@ -80,19 +81,19 @@ export const reducer = (state,action) => {
                 ...state,
                 cart: newCart,
             }
-        case 'calTotalItems':
+        case ACTIONS.CAL_TOTAL_ITEMS:
             const sum = state.cart.reduce((totalCount,currentItem) => totalCount + currentItem.count, 0) ;
             return {
                 ...state,
                 totalItems: sum,
             }
-        case 'calTotalAmount':
+        case ACTIONS.CAL_TOTAL_AMOUNT:
             const totalSum = (state.cart.reduce((totalAmount,currentItem) => totalAmount + (currentItem.count * currentItem.price), 0)).toFixed(2);
             return {
                 ...state,
                 totalAmount: totalSum,
             }
-        case 'addExistingCart':
+        case ACTIONS.ADD_EXISTING_CART:
             newCart = [];
             if(action.payload.existingCart)
                 newCart = action.payload.existingCart;

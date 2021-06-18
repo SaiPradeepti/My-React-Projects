@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGlobalContext} from './context'
+import { ACTIONS, useGlobalContext} from './context'
 import { contactData} from './data'
 
 const Contact = () => {
@@ -12,7 +12,7 @@ const Contact = () => {
                     contactData.map(item => {
                         const {id,title,info,icon} = item;
                         return (
-                            <section key={id} className='contact__info' onMouseOver={()=>dispatch({type:'setIconId',payload: id})} onMouseOut={()=>dispatch({type:'setIconId',payload: 0})}>
+                            <section key={id} className='contact__info' onMouseOver={()=>dispatch({type: ACTIONS.SET_ICON_ID, payload: id})} onMouseOut={()=>dispatch({type: ACTIONS.SET_ICON_ID, payload: 0})}>
                                 <div className={iconId === id ?"contact__icon icon-animate":"contact__icon"}>{icon}</div>
                                 <div className="contact__title">{title}</div>
                                 <div className="contact__inf">{info}</div>
@@ -29,14 +29,14 @@ const Contact = () => {
                     {   !msgSubmitted &&(
                         <>
                             <div className="form-control">
-                                <input type="text" value={formInput.email}  name="email" id="email" placeholder='Enter your email-id' required autoComplete='off' onChange={(e)=>dispatch({type: 'setFormInput',payload: {name: e.target.name, value: e.target.value}})}/>
+                                <input type="text" value={formInput.email}  name="email" id="email" placeholder='Enter your email-id' required autoComplete='off' onChange={(e)=>dispatch({type: ACTIONS.SET_FORM_INPUT, payload: {name: e.target.name, value: e.target.value}})}/>
                             </div>
                             <div className="form-control">
-                                <textarea name='textarea' value={formInput.textarea} className='textarea' placeholder='Type your message...' required onChange={(e)=>dispatch({type: 'setFormInput',payload: {name: e.target.name, value: e.target.value}})}></textarea>
+                                <textarea name='textarea' value={formInput.textarea} className='textarea' placeholder='Type your message...' required onChange={(e)=>dispatch({type: ACTIONS.SET_FORM_INPUT, payload: {name: e.target.name, value: e.target.value}})}></textarea>
                             </div>
                             <button className='btn' onClick={()=>{
                                 if(formInput.email && formInput.textarea)
-                                    dispatch({type: 'msgSubmittedTrue'})
+                                    dispatch({type: ACTIONS.SET_MSG_SUBMITTED})
                             }}>Submit</button>            
                         </>
                         )   

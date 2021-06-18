@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router'
-import { useGlobalContext} from './context'
+import { ACTIONS, useGlobalContext} from './context'
 import { Link } from 'react-router-dom'
 import Error from './Error'
 
@@ -42,7 +42,7 @@ const ProductDetails = () => {
                                 </div>
                                 <div className="product__details">
                                     {
-                                        cart.some(item=>item.id===id) ? <div className='addToCart blur'><p>Item added to cart</p></div> : <div className='addToCart' onClick={()=>dispatch({type:'addToCart',payload: {id}})}><p>add to cart</p></div>
+                                        cart.some(item=>item.id===id) ? <div className='addToCart blur'><p>Item added to cart</p></div> : <div className='addToCart' onClick={()=>dispatch({type: ACTIONS.ADD_TO_CART,payload: {id}})}><p>add to cart</p></div>
                                     }
                                     <div className="title">{title}</div>
                                     <div className="price">$ {price}</div>

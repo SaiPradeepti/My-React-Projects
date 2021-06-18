@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useGlobalContext } from './context'
+import { useGlobalContext, ACTIONS } from './context'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa'
 
@@ -9,14 +9,14 @@ const Cart = () => {
     useEffect(()=>{
         if(localStorage.getItem('cart') !== ''){
             const existingCart = JSON.parse(localStorage.getItem('cart'));
-            dispatch({type: 'addExistingCart',payload: {existingCart: existingCart}});
+            dispatch({type: ACTIONS.ADD_EXISTING_CART,payload: {existingCart: existingCart}});
         } 
     },[dispatch])
 
     useEffect(()=>{
         
         if(cart.length !== 0){
-            dispatch({type: 'calTotalAmount'});
+            dispatch({type: ACTIONS.CAL_TOTAL_AMOUNT});
             localStorage.setItem('cart', JSON.stringify(cart));
         }            
         if(cart.length === 0)
@@ -28,7 +28,7 @@ const Cart = () => {
             <div className="cart__title">
                 your cart
             </div>
-            <div className="cart__remove" onClick={()=>dispatch({type:'toggleCart'})}>
+            <div className="cart__remove" onClick={()=>dispatch({type: ACTIONS.TOGGLE_CART})}>
                 <AiOutlineCloseCircle />
             </div>
             {
@@ -52,17 +52,17 @@ const Cart = () => {
                                         <div className="section__price">
                                             $ {price}
                                         </div>
-                                        <div className="section__removeItem" onClick={()=>dispatch({type:'removeFromCart',payload: {id}})}>
+                                        <div className="section__removeItem" onClick={()=>dispatch({type: ACTIONS.REMOVE_FROM_CART,payload: {id}})}>
                                         remove
                                         </div>
                                         <div className="section__quantity">
-                                            <div className="incIcon" onClick={()=>dispatch({type:'changeCount',payload:{operation:'increment',id: id}})}>
+                                            <div className="incIcon" onClick={()=>dispatch({type: ACTIONS.CHANGE_COUNT,payload:{operation:'increment',id: id}})}>
                                                 <FaChevronUp />
                                             </div>
                                             <div className="quantity">
                                                 {count}
                                             </div>
-                                            <div className="decIcon" onClick={()=>dispatch({type:'changeCount',payload:{operation:'decrement',id: id}})}>
+                                            <div className="decIcon" onClick={()=>dispatch({type: ACTIONS.CHANGE_COUNT,payload:{operation:'decrement',id: id}})}>
                                                 <FaChevronDown />
                                             </div>
 
