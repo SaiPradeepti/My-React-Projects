@@ -78,6 +78,10 @@
       .section__title {
         grid-area: title;
         font-size: 1.3rem;
+
+        @include responsive(440px) {
+          font-size: 1rem;
+        }
       }
       .section__price {
         font-size: 1.2rem;
@@ -108,6 +112,10 @@
         }
       }
     }
+
+    @include responsive(700px) {
+      padding: 2rem 1.5em 0rem 1.5rem;
+    }
   }
 
   #{&}__total {
@@ -131,9 +139,15 @@
         color: $clr-yellow;
       }
     }
+    @include responsive(700px) {
+      padding: 1rem 1.5rem;
+    }
+    @include responsive(440px) {
+      font-size: 1rem;
+    }
   }
 
-  @include responsive(500px) {
+  @include responsive(700px) {
     width: 100%;
   }
 }
