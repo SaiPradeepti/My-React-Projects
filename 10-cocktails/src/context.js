@@ -6,7 +6,7 @@ const AppContext = React.createContext();
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
 
 const AppProvider = ({ children }) => {
-    const [searchTerm, setSearchTerm] = useState('azzzz');
+    const [searchTerm, setSearchTerm] = useState('a');
     const { loading, error, cocktails } = useFetch(url,searchTerm);
 
     return <AppContext.Provider value={{

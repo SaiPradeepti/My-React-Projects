@@ -9,7 +9,7 @@ export const useFetch = (url,searchTerm) => {
 
         setTimeout(()=>{
             setLoading(true);
-            console.log(`${url}${searchTerm}`)
+            
             fetch(`${url}${searchTerm}`)
                 .then(response =>{
                     if(!response.ok)
@@ -19,7 +19,24 @@ export const useFetch = (url,searchTerm) => {
                 .then(data => {
                     const { drinks } = data;
                     if(drinks){
-                        setCocktails(drinks);
+                        const newCocktails = drinks.map((item) => {
+                            const {
+                                idDrink,
+                                strDrink,
+                                strDrinkThumb,
+                                strAlcoholic,
+                                strGlass,
+                            } = item
+
+                            return {
+                                id: idDrink,
+                                name: strDrink,
+                                image: strDrinkThumb,
+                                info: strAlcoholic,
+                                glass: strGlass,
+                            }
+                        })
+                        setCocktails(newCocktails);
                     }
                     else{
                         setCocktails([]);
