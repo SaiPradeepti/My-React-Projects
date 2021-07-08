@@ -19,7 +19,7 @@ Users should be able to:
 ## Links
 
 - Solution URL: [Solution](https://github.com/SaiPradeepti/React-Projects/tree/main/10-cocktails)
-- Live Site URL: [Live Site]()
+- Live Site URL: [Live Site](https://cocktails-sp.netlify.app/)
 
 ## Screenshots
 
