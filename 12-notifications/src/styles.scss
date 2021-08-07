@@ -8,7 +8,6 @@
 }
 
 body {
-  height: 100vh;
   padding: 5rem;
   background-image: linear-gradient(
     to top,
@@ -18,11 +17,16 @@ body {
     #cc9cb1,
     #edbdcd
   );
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 200vh;
 }
 
 .container {
-  //   display: none;
-  //   visibility: hidden;
+  margin-top: 2rem;
+  transform: translate(150%, 10%);
+  transition: all ease 0.5s;
+  position: relative;
 
   .notif {
     background: #fff;
@@ -32,14 +36,11 @@ body {
     display: flex;
     overflow: hidden;
     flex-direction: column;
-    position: absolute;
-    top: 20%;
-    right: 1%;
 
     &__title {
       font-size: 1.2rem;
       font-weight: bold;
-      padding: 1rem 0;
+      padding: 2rem 2rem;
       color: #000;
     }
 
@@ -59,17 +60,34 @@ body {
     }
   }
 
+  .close {
+    position: absolute;
+    top: 3%;
+    left: 23%;
+    // z-index: 99;
+    // right: -1%;
+    color: #000;
+  }
+
   &:hover {
     cursor: pointer;
   }
 }
 
 .show {
-  display: block;
-  visibility: visible;
+  animation: slide-in 0.5s forwards;
+}
+.hide {
+  animation: slide-out 0.5s forwards;
 }
 
-.hide {
-  display: none;
-  visibility: hidden;
+@keyframes slide-in {
+  100% {
+    transform: translateX(80%);
+  }
+}
+@keyframes slide-out {
+  100% {
+    transform: translateX(0%);
+  }
 }
