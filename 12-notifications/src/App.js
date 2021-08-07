@@ -1,10 +1,10 @@
 import React from 'react'
+import Main from './components/Main'
 
 const App = () => {
   return (
     <div>
-      <h1>Look for notifications to your right!!
-      </h1>
+      <Main />
     </div>
   )
 }
