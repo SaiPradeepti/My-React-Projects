@@ -9,17 +9,22 @@
 
 body {
   padding: 5rem;
-  background-image: linear-gradient(
-    to top,
-    #684164,
-    #895e7c,
-    #aa7c96,
-    #cc9cb1,
-    #edbdcd
-  );
+  // background-image: linear-gradient(
+  //   to top,
+  //   #684164,
+  //   #895e7c,
+  //   #aa7c96,
+  //   #cc9cb1,
+  //   #edbdcd
+  // );
+  background-color: #20232a;
   overflow-x: hidden;
   overflow-y: scroll;
   height: 200vh;
+}
+
+.main {
+  color: #61dafb;
 }
 
 .container {
@@ -64,8 +69,6 @@ body {
     position: absolute;
     top: 3%;
     left: 23%;
-    // z-index: 99;
-    // right: -1%;
     color: #000;
   }
 

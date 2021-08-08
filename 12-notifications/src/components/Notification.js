@@ -9,26 +9,16 @@ const Notification = () => {
     useEffect(() => {
 
         data.map((item,index) => {
+            let interval = item.timestamp*1000 - Number(Date.now().toFixed(0));
+            // console.log(item.timestamp*1000,Number(Date.now().toFixed(0)),interval*100);
+            interval = 1000 * (index + 1);
             const timer = setTimeout(()=>{
             setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:item.id,display:true}]);
-        }, 1000*(index+1))
+        }, interval)
             timerArr.push(timer);
         })
         
-        // const timer1 = setTimeout(()=>{
-        //     setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:1,display:true}]);
-        // }, 1000)
-        // const timer2 = setTimeout(()=>{
-        //     setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:2,display:true}]);
-        // }, 3000)
-        // const timer3 = setTimeout(()=>{
-        //     setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:3,display:true}]);
-        // }, 5000)
-        
         return () => {
-            // clearTimeout(timer1);
-            // clearTimeout(timer2);
-            // clearTimeout(timer3);
             timerArr.map(timer => clearTimeout(timer))
         }
     }, [])
@@ -53,23 +43,23 @@ const Notification = () => {
         <div>            
             {
                 data.map((item,index) => {
-                    const {id,title,imgLink,link,timestamp} = item;
+                    const {id,title,imgLink,link} = item;
                      return (
                                 displayNotif.map((displayNotifItem)=>{
-                            const {displayID,display} = displayNotifItem;
-                            if(id === displayID && display){
-                                return (
-                                    <div key={displayID} className={`container ${ (id === displayID && display) ? 'show' : 'hide'}`}>
-                                        <a href={link} target='_blank' rel="noreferrer" key={index} className='notif'>
-                                            <p className='notif__title'>{title}</p>
-                                            <div className='notif__img'>
-                                                <img src={imgLink} alt={title}/>
-                                            </div>
-                                        </a>
-                                        <div className='close' onClick={() => closeNotif(displayID)}><FaWindowClose/></div>
-                                    </div>
-                                )
-                            }
+                                const {displayID,display} = displayNotifItem;
+                                if(id === displayID && display){
+                                    return (
+                                        <div key={displayID} className={`container ${ (id === displayID && display) ? 'show' : 'hide'}`}>
+                                            <a href={link} target='_blank' rel="noreferrer" key={index} className='notif'>
+                                                <p className='notif__title'>{title}</p>
+                                                <div className='notif__img'>
+                                                    <img src={imgLink} alt={title}/>
+                                                </div>
+                                            </a>
+                                            <div className='close' onClick={() => closeNotif(displayID)}><FaWindowClose/></div>
+                                        </div>
+                                    )
+                                }
                         }) 
                      )                   
                 })
