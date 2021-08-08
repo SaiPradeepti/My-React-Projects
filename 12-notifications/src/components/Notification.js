@@ -4,27 +4,32 @@ import {FaWindowClose} from 'react-icons/fa'
 
 const Notification = () => {
     const [displayNotif, setDisplayNotif] = useState([]);
+    const [timerArr,setTimerArr] = useState([]);
 
     useEffect(() => {
 
-        // data.map(item => {
-
-        // })
+        data.map((item,index) => {
+            const timer = setTimeout(()=>{
+            setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:item.id,display:true}]);
+        }, 1000*(index+1))
+            timerArr.push(timer);
+        })
         
-        const timer1 = setTimeout(()=>{
-            setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:1,display:true}]);
-        }, 1000)
-        const timer2 = setTimeout(()=>{
-            setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:2,display:true}]);
-        }, 3000)
-        const timer3 = setTimeout(()=>{
-            setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:3,display:true}]);
-        }, 5000)
+        // const timer1 = setTimeout(()=>{
+        //     setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:1,display:true}]);
+        // }, 1000)
+        // const timer2 = setTimeout(()=>{
+        //     setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:2,display:true}]);
+        // }, 3000)
+        // const timer3 = setTimeout(()=>{
+        //     setDisplayNotif((displayNotif)=>[...displayNotif,{displayID:3,display:true}]);
+        // }, 5000)
         
         return () => {
-            clearTimeout(timer1);
-            clearTimeout(timer2);
-            clearTimeout(timer3);
+            // clearTimeout(timer1);
+            // clearTimeout(timer2);
+            // clearTimeout(timer3);
+            timerArr.map(timer => clearTimeout(timer))
         }
     }, [])
 
