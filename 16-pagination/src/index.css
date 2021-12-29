@@ -22,6 +22,17 @@ body {
   width: 100%;
 }
 
+.loading {
+  height: 70vh;
+  color: var(--clr-grey);
+  text-align: center;
+  padding: 2rem auto;
+  /* border: 1px solid red; */
+  display: grid;
+  align-items: center;
+  font-size: 2rem;
+}
+
 .heading {
   position: relative;
   margin: 2rem auto;
@@ -96,15 +107,18 @@ h1.title {
 
 .card-btn {
   padding: 0.35rem 0.75rem;
-  letter-spacing: 1.6px;
-  font-size: 0.75rem;
-  color: #fff;
   background: #49a6e9;
   border-radius: 0.75rem;
   border-color: transparent;
-  text-transform: uppercase;
-  /* transition: all 0.3s linear; */
   cursor: pointer;
+}
+
+.card-btn a {
+  letter-spacing: 1.6px;
+  font-size: 0.75rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 600px) {

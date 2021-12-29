@@ -6,32 +6,20 @@ const paginationBtns  =[1,2, 3, 4, 5, 6, 7, 8, 9, 10];
 const App = () => {
   const [users,setUsers] = useState([]);
   const [displayindex,setDisplayIndex] = useState(0);
+  const [loading,setLoading] = useState(true)
 
   const getUsers = async () => {
     const data = await fetch(url);
     const users = await data.json();
     setUsers(users)
+    setTimeout(() => {setLoading(false)}, 2000)
     return users;
   }
 
   const handleClick = (e) => {
     e.preventDefault();
     let page = e.target.dataset.label;
-    // let indexToDisplay = page;
-    // if(page === -1){
-    //   if(displayindex !== 0)
-    //     indexToDisplay = displayindex - 1;
-    //   else
-    //     indexToDisplay = 10;
-    // }
-    // if(page === 11){
-    //   if(displayindex !== 9)
-    //     indexToDisplay = displayindex + 1;
-    //   else
-    //     indexToDisplay = 0;
-    // }
     setDisplayIndex(page)
-    // console.log(displayindex)
   }
 
   const handlePrevClick = () => {
@@ -51,6 +39,8 @@ const App = () => {
   useEffect(() =>{
     getUsers();
   },[]);
+
+  
   
   return (
     <div className="main">
@@ -58,7 +48,7 @@ const App = () => {
       <h1 className='title'>Pagination</h1>
       <div className="underline"></div>
     </div>
-    <Users users={users} displayindex={displayindex}/>
+    <Users users={users} displayindex={displayindex} loading={loading}/>
     <div className="pagination">
       <div className="prev" onClick={handlePrevClick}>Prev</div>
       {
