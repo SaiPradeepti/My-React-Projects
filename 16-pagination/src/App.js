@@ -30,7 +30,7 @@ const App = () => {
     
   }
   const handleNextClick = () => {
-    if(displayindex === 9)
+    if(displayindex >= 9)
       setDisplayIndex(0)
     else
       setDisplayIndex(displayindex => parseInt(displayindex) + 1)
@@ -53,8 +53,9 @@ const App = () => {
       <div className="prev" onClick={handlePrevClick}>Prev</div>
       {
         paginationBtns.map((item,index) => {
+          console.log(index,displayindex)
           return (
-            <div key={index} className="btn" data-label={index} onClick={handleClick}>
+            <div key={index} className={`btn ${index === parseInt(displayindex) ? 'active' : ''}`} data-label={index} onClick={handleClick}>
               {item}
             </div>
           )

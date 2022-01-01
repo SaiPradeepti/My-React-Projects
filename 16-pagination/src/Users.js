@@ -2,14 +2,14 @@ import React from 'react'
 
 const Users = ({users,displayindex,loading}) => {
     const i = displayindex;
-
+    console.log(i)
     const displayUsers = users.map((item,index) => {
         if(index >= (i*10) && index <= (parseInt(i)+1)*10-1)
             return item;
         else
         return null;
     })
-    console.log(displayUsers)
+    // console.log(displayUsers)
     
     const viewProfile = (profile) => {
 

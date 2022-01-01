@@ -68,10 +68,12 @@ h1.title {
   border-radius: 5px;
   padding: 0.5rem 0.7rem;
   background: var(--clr-light-blue);
+  transition: all 0.8s ease;
 }
 
-.pagination .btn .active {
-  background: var(--clr-dark-blue);
+.active {
+  background: var(--clr-dark-blue) !important;
+  color: var(--clr-white);
 }
 
 .pagination > div:hover {
