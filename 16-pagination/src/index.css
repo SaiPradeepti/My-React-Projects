@@ -68,7 +68,7 @@ h1.title {
   border-radius: 5px;
   padding: 0.5rem 0.7rem;
   background: var(--clr-light-blue);
-  transition: all 0.8s ease;
+  transition: all 0.5s ease;
 }
 
 .active {
