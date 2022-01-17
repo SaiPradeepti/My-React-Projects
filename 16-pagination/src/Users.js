@@ -8,7 +8,7 @@ const Users = ({data,displayindex,loading}) => {
         else
         return null;
     })
-
+    console.log(users)
     if(loading){
     return <div className='loading'><h1>Loading...</h1></div>
   }

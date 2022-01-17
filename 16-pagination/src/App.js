@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react'
 import Users from './Users'
 import {useFetch} from './useFetch'
@@ -7,7 +8,7 @@ const App = () => {
   const [displayindex,setDisplayIndex] = useState(0);
   const {loading, data} = useFetch();
 
-  const handleClick = (e) => {
+   const handleClick = (e) => {
     e.preventDefault();
     let page = e.target.dataset.label;
     setDisplayIndex(page)
