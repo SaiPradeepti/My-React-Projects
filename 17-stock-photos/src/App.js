@@ -10,7 +10,7 @@ const searchUrl = `https://api.unsplash.com/search/photos/`
 function App() {
   const [loading,setLoading] = useState(false);
   const [photos,setPhotos] = useState([]);
-  const [page,setPage] = useState(1);
+  const [page,setPage] = useState(0);
   const [query,setQuery] = useState('');
 
   const fetchImages = async () => {
@@ -20,7 +20,7 @@ function App() {
     let url;
 
     if (query)
-      url = `${mainUrl}${clientID}${urlPage}${urlQuery}`
+      url = `${searchUrl}${clientID}${urlPage}${urlQuery}`
     else
       url = `${mainUrl}${clientID}${urlPage}`
     
@@ -28,8 +28,12 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       setPhotos((oldphotos) => {
-        if(query)
+        if(query && page === 1){
+           return data.results
+        }
+        else if(query){
         return [...oldphotos,...data.results]
+        }
         else
         return [...oldphotos,...data]
       })
@@ -43,9 +47,11 @@ function App() {
 
   useEffect(() => {
     fetchImages();
+    // eslint-disable-next-line
   }, [page])
 
   useEffect(() => {
+    console.log(page)
     const event = window.addEventListener('scroll',() => {
       if(!loading && (window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2){
         setPage((oldPage) => {
@@ -55,11 +61,12 @@ function App() {
     })
 
     return () => window.removeEventListener('scroll',event)
+    // eslint-disable-next-line
   }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target)
+    setPage(1)
   }
 
   return <main>
@@ -75,7 +82,7 @@ function App() {
       <div className="photos-center">
         {
           photos.map((image,index) => {
-            return <Photo key={image.id} {...image} />
+            return <Photo key={index} {...image} />
           })
         }
       </div>
