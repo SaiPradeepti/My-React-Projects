@@ -38,14 +38,14 @@ code {
   overflow: hidden;
 }
 
-.image img {
+.image .img {
   height: 100%;
   width: 100%;
   object-fit: cover;
   transition: all ease 0.3s;
 }
 
-img:hover {
+.img:hover {
   transform: scale(1.1);
 }
 

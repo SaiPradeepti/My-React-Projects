@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const App = () => {
   const [images,setImages] = useState([])
@@ -31,7 +33,7 @@ const App = () => {
           const {id, urls: {regular: url}, alt_description: desc} = item;
           return(
             <div className='image' key={id}>
-              <img src={url} alt={desc} />
+              <LazyLoadImage effect='blur' src={url} alt={desc} height="400px" width="300px" className='img'/>
             </div>
           )
         })
