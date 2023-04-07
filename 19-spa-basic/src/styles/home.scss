@@ -72,3 +72,83 @@
         transform: translateY(-10px);
     }
 }
+
+.home3{
+    @include homeStyle;
+
+    div{
+        width: 70%;
+        height: 100vh;
+        background-color: $first;
+        border-radius: 0 200px 200px 0;
+        @include flexCenter(column);
+        padding: 2rem;
+
+        h1{
+            text-transform: uppercase;
+            border-bottom: 2px solid $dark;
+            padding: 0.5rem;
+            width: 15rem;
+            color: $dark;
+        }
+
+        p{
+            padding: 5rem;
+            letter-spacing: 1px;
+            word-spacing: 5px;
+            line-height: 170%;
+            font: italic 100 1.2rem $text2;
+        }
+    }
+}
+
+.home4{
+    @include homeStyle;
+    margin-top: 0px;
+
+    > div {
+            width: 80%;
+            height: 70vh;
+            background-color: $third;
+            border-radius: 200px 0 0 200px;
+            @include flexCenter(column);
+            position: relative;
+            left: 30%;
+    
+    > h1{
+        color: $first;
+        text-transform: uppercase;
+        width: 140px;
+        border-bottom: 2px solid $first;
+        padding: 0.5rem;
+    }
+    > article{
+        display: flex;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        >div{
+            animation: imgUp 0.7s linear infinite alternate;
+            margin: 1rem;
+            height: 10rem;
+            width: 10rem;
+            background-color: $first;
+            border-radius: 50%;
+            @include flexCenter(column);
+            color: $dark;
+            cursor: pointer;
+            transition: all 0.5s;
+            &:hover {
+                filter: invert(1);
+            }
+            svg{
+                font-size: 4rem;
+            }
+            p{
+                font: 900 1.2rem $text2;
+            }
+        }
+    }
+}
+
+}
